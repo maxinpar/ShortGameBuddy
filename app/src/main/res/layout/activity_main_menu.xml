@@ -1,0 +1,49 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/grass_bg"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button android:id="@+id/chipDrillButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chipping Drills"
+            android:background="@drawable/chip_shot"
+            android:layout_weight=".2"
+            android:layout_gravity="left"
+            android:onClick="openChippingActivity"
+            />
+
+        <Button android:id="@+id/puttDrillButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Putting Drills"
+            android:background="@drawable/putt_shot"
+            android:layout_weight=".2"
+            android:layout_gravity="left"
+            android:onClick="openPuttingActivity"
+            />
+
+        <Button android:id="@+id/statsButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Putting Drills"
+            android:background="@drawable/stats"
+            android:layout_weight=".2"
+            android:layout_gravity="left"
+            android:onClick="openStatsActivity"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

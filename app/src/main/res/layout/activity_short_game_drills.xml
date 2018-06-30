@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_1"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column1"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="openShortChipActivity"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SC_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortChipImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/shortchipfinal" />
+
+                <TextView
+                    android:id="@+id/shortChip_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/shortChipImg"
+                    android:layout_alignRight="@id/shortChipImg"
+                    android:text="10"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/shortChipTitle"
+                style="@style/DrillMenuText"
+                android:text="Short Chip"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column2"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="openLongChipActivity"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LC_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/longChipImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/longchipfinal" />
+
+                <TextView
+                    android:id="@+id/longChip_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/longChipImg"
+                    android:layout_alignRight="@id/longChipImg"
+                    android:text=""/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/longChipTitle"
+                style="@style/DrillMenuText"
+                android:text="Long Chip" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column3"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:onClick="openShortSandActivity"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SS"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortSandImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/shortsandfinal" />
+
+                <TextView
+                    android:id="@+id/shortSand_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/shortSandImg"
+                    android:layout_alignRight="@id/shortSandImg"
+                    android:text="10"/>
+
+            </RelativeLayout>
+
+            <TextView
+                style="@style/DrillMenuText"
+                android:text="Short Sand"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_drill_line_2"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column1"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:onClick="openLongSandActivity"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LS_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/longSandImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/longsandfinal" />
+
+                <TextView
+                    android:id="@+id/longSand_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/longSandImg"
+                    android:layout_alignRight="@id/longSandImg"
+                    android:text="10"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/longSandTitle"
+                style="@style/DrillMenuText"
+                android:text="Long Sand"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column2"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:onClick="openShortPitchActivity"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SP_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortPitchImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/shortpitchfinal" />
+
+                <TextView
+                    android:id="@+id/shortPitch_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/shortPitchImg"
+                    android:layout_alignRight="@id/shortPitchImg"
+                    android:text="10"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/shortPitchTitle"
+                style="@style/DrillMenuText"
+                android:text="Short Pitch"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column3"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:onClick="openMediumPitchActivity"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_MP_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/mediumPitchImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/mediumpitchfinal" />
+
+                <TextView
+                    android:id="@+id/mediumPitch_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/mediumPitchImg"
+                    android:layout_alignRight="@id/mediumPitchImg"
+                    android:text="10"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/mediumPitchTitle"
+                style="@style/DrillMenuText"
+                android:text="Medium Pitch"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_drill_line_3"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column1"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="openLongPitchActivity"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LP"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/LPImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/longpitchfinal" />
+
+                <TextView
+                    android:id="@+id/longPitch_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/LPImg"
+                    android:layout_alignRight="@id/LPImg"
+                    android:text="10"/>
+
+            </RelativeLayout>
+            <TextView
+                style="@style/DrillMenuText"
+                android:text="Long Pitch"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column2"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="openRoughChipActivity"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_RC"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/RCImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/roughchipfinal" />
+
+                <TextView
+                    android:id="@+id/RoughChip_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/RCImg"
+                    android:layout_alignRight="@id/RCImg"
+                    android:text="10"/>
+
+            </RelativeLayout>
+            <TextView
+                style="@style/DrillMenuText"
+                android:text="In The Rough"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column3"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:onClick="openLobShotActivity"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LS"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/LSImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/lobshotfinal" />
+
+                <TextView
+                    android:id="@+id/LobShot_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/LSImg"
+                    android:layout_alignRight="@id/LSImg"
+                    android:text="10"/>
+
+            </RelativeLayout>
+            <TextView
+                style="@style/DrillMenuText"
+                android:text="Lob Shot"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:gravity="center_vertical">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="openMainMenu"
+            android:text="Back"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Scorecard"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="openScorecardActivity"/>
+
+    </LinearLayout>
+</LinearLayout>

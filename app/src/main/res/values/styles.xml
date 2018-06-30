@@ -1,0 +1,130 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+
+
+    <style name="DrillMenuText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">0px</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginTop">-5dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:baselineAligned">false</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/DarkGray</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="BadgeTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginRight">6dp</item>
+        <item name="android:background">@drawable/item_count</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
+    <style name="DrillScoreGradientLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0px</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:weightSum">6</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="DrillScoreGradientLineRL">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">5</item>
+        <item name="android:paddingLeft">10px</item>
+        <item name="android:paddingBottom">-2px</item>
+        <item name="android:paddingTop">-2px</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="DrillScoreGradientLineText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">false</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:paddingLeft">25px</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:text">No Data for this drill</item>
+    </style>
+
+    <style name="DrillScoreGradientHcapText">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <!-- Styles used in the Drill Input Score Layouts -->
+
+    <style name="DefaultNumberPickerTheme">
+        <item name="colorControlNormal">@color/transparent</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColorPrimary">@color/orange</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">#ABABAB</item>
+    </style>
+
+    <style name="dividerLine">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1dip</item>
+        <item name="android:background">#000000</item>
+    </style>
+
+    <style name="drillInputScoreImage">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+
+    <style name="scoreInputLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0px</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:weightSum">5</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="scoreInputNumberPickerLabel">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">4</item>
+        <item name="android:textSize">10pt</item>
+        <item name="android:paddingLeft">10px</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="scoreInputButton">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">40px</item>
+    </style>
+
+
+</resources>

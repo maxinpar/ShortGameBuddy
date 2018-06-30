@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="11"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_1"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column1"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SC_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortChipImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    android:src="@drawable/shortchip___trans" />
+
+                <TextView
+                    android:id="@+id/shortChip_Badge1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shortChipImg"
+                    android:layout_alignRight="@id/shortChipImg"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginRight="4dp"
+                    android:background="@drawable/item_count"
+                    android:text="10"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/shortChipTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:baselineAligned="false"
+                android:text="Short Chip"
+                android:includeFontPadding="false"
+                android:layout_marginTop="-5dp"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column2"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LC_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="9">
+
+                <ImageView
+                    android:id="@+id/longChipImg"
+                    android:src="@drawable/longchip_trans"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/longChip_Badge1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/longChipImg"
+                    android:layout_alignRight="@id/longChipImg"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/longChipTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="Long Chip"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column3"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SC_img_txt3"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortChipImg3"
+                    android:src="@drawable/shortsandsq3"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/shortChip_Badge3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shortChipImg3"
+                    android:layout_alignRight="@id/shortChipImg3"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/shortChipTitle3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="Short Sand"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_drill_line_2"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column1"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SC_img_txt2"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortChipImg2"
+                    android:src="@drawable/shortchip___trans"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/shortChip_Badge12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shortChipImg2"
+                    android:layout_alignRight="@id/shortChipImg2"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textColor="#FFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/shortChipTitle12"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_weight="2"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:text="Short Chip"
+                android:textColor="#444"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column2"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LC_img_txt2"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="9">
+
+                <ImageView
+                    android:id="@+id/longChipImg2"
+                    android:src="@drawable/longchip_trans"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/longChip_Badge2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/longChipImg2"
+                    android:layout_alignRight="@id/longChipImg2"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textColor="#FFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/longChipTitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:text="Long Chip"
+                android:textColor="#444"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column3"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SS_img_txt2"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="9">
+
+                <ImageView
+                    android:id="@+id/shortSandImg2"
+                    android:src="@drawable/shortsandsq3"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/shortSand_Badge12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shortSandImg2"
+                    android:layout_alignRight="@id/shortSandImg2"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textColor="#FFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/shortSandTitle12"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:text="Short Chip"
+                android:textColor="#444"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_drill_line_3"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="3">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column1"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SC_img_txt4"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortChipImg4"
+                    android:src="@drawable/shortchip___trans"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/shortChip_Badge14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shortChipImg4"
+                    android:layout_alignRight="@id/shortChipImg4"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/shortChipTitle14"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_weight="2"
+                android:gravity="center|top"
+                android:layout_gravity="center"
+                android:text="Short Chip"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column2"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LC_img_txt4"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="9">
+
+                <ImageView
+                    android:id="@+id/longChipImg4"
+                    android:src="@drawable/longchip_trans"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openRoughChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/longChip_Badge14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/longChipImg4"
+                    android:layout_alignRight="@id/longChipImg4"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/longChipTitle14"
+                android:layout_width="wrap_content"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="Long Chip"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column3"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SC_img_txt34"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/shortChipImg34"
+                    android:src="@drawable/shortsandsq3"
+                    android:layout_height="fill_parent"
+                    android:layout_width="fill_parent"
+                    android:onClick="openShortChipActivity"
+                    />
+
+                <TextView
+                    android:id="@+id/shortChip_Badge34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/shortChipImg34"
+                    android:layout_alignRight="@id/shortChipImg34"
+                    android:background="@drawable/item_count"
+                    android:text=""
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/shortChipTitle34"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="Short Sand"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="2"
+        android:weightSum="2"
+        android:gravity="center"
+        android:background="#0D0">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Back"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Scorecard"/>
+
+    </LinearLayout>
+</LinearLayout>
