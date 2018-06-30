@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.activities.shortGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,11 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import ChippingDrills.GenericShortGameDrill;
-import ChippingDrills.ShortGameCard;
-import data.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.models.GenericShortGameDrill;
+import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.utils.OnSwipeTouchListener;
 
 
 public class LongSandScoreInputActivity extends AppCompatActivity {
@@ -60,7 +62,7 @@ public class LongSandScoreInputActivity extends AppCompatActivity {
         Log.i(TAG, "Creating the LS Drill. We have gotten Card Id: " + card_id);
         if (card_id != -1) {
             try{
-                ssd = scDbHelper.getShortGameDrill(card_id, scDbHelper.SC_LONG_SAND_DRILL_ID);
+                ssd = scDbHelper.getShortGameDrill(card_id, GolfPracticeDBHelper.SC_LONG_SAND_DRILL_ID);
             } catch (Exception e) {
                 Log.i(TAG, "Failed to load long sand object when starting Activity. Card id is " + card_id);
                 Log.i(TAG, "setting drill to null");
@@ -131,7 +133,7 @@ public class LongSandScoreInputActivity extends AppCompatActivity {
             ssd.setCardId(-1);
             ssd.setTotalScore(0);
             ssd.setDate_played("");
-            ssd.setDrillType(scDbHelper.SC_LONG_SAND_DRILL_ID);
+            ssd.setDrillType(GolfPracticeDBHelper.SC_LONG_SAND_DRILL_ID);
         }
 
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.main_layout);
@@ -184,7 +186,7 @@ public class LongSandScoreInputActivity extends AppCompatActivity {
             ssd.setNumberInside6Ft(numberOf1pt);
             ssd.setNumberOutside(10-numberOf4pt-numberOf2pt-numberOf1pt);
             ssd.setDrillHandicap(getHcapFromScore(getTotalScore()));
-            ssd.setDrillType(scDbHelper.SC_LONG_SAND_DRILL_ID);
+            ssd.setDrillType(GolfPracticeDBHelper.SC_LONG_SAND_DRILL_ID);
 
             if (ssd.getId()==-1) {
                 //Create the drill as it is new

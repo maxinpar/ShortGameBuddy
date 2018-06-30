@@ -1,4 +1,4 @@
-package ChippingDrills;
+package boucoiran.fr.shortgamebuddy.models;
 
 /*
  * This is the Java object that is going to represent our full Short Game Drill card.

@@ -1,4 +1,4 @@
-package data;
+package boucoiran.fr.shortgamebuddy.models;
 
 import android.provider.BaseColumns;
 

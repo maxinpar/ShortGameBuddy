@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy.stats.Activities;
+package boucoiran.fr.shortgamebuddy.activities.stats;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,11 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import ChippingDrills.ShortGameCard;
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.ShortGameDrillsActivity;
-import data.GolfPracticeDBHelper;
-import data.SGCardAdapter;
+import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortGameDrillsActivity;
+import boucoiran.fr.shortgamebuddy.adapters.SGCardAdapter;
+import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 
 public class ShowCardsActivity extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.activities.shortGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,25 +12,25 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import ChippingDrills.GenericShortGameDrill;
-import ChippingDrills.ShortGameCard;
-import data.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.models.GenericShortGameDrill;
+import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.utils.OnSwipeTouchListener;
 
 
-public class LongPitchScoreInputActivity extends AppCompatActivity {
+public class RoughChipScoreInputActivity extends AppCompatActivity {
 
-    private static String TAG = "LongPitchScoreInputActivity";
-
+    private static String TAG = "RoughChipScoreInputActivity";
     private static NumberPicker np1;
     private static NumberPicker np2;
     private static NumberPicker np3;
 
     private GolfPracticeDBHelper scDbHelper;
-    private static GenericShortGameDrill ssd;
+    private static GenericShortGameDrill scd;
     private static int card_id;
 
     private Class iDest;
-
 
     private String getStringDate() {
         String date = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
@@ -48,20 +48,19 @@ public class LongPitchScoreInputActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_long_pitch_score_input);
+        setContentView(R.layout.activity_rough_chip_score_input);
         scDbHelper = new GolfPracticeDBHelper(this);
 
-        setTitle("Long Pitch Drill");
+        setTitle("Chip From Rough Drill");
 
         card_id = getIntent().getIntExtra("CARD_ID", -1);
-        Log.i(TAG, "Creating the LP Drill. We have gotten Card Id: " + card_id);
         if (card_id != -1) {
             try{
-                ssd = scDbHelper.getShortGameDrill(card_id, scDbHelper.SC_LONG_PITCH_DRILL_ID);
+                scd = scDbHelper.getShortGameDrill(card_id, GolfPracticeDBHelper.SC_ROUGH_CHIP_DRILL_ID);
             } catch (Exception e) {
-                Log.i(TAG, "Failed to load long pitch object when starting Activity. Card id is " + card_id);
+                Log.i(TAG, "Failed to load rough chip object when starting Activity. Card id is " + card_id);
                 Log.i(TAG, "setting drill to null");
-                ssd = null;
+                scd = null;
             }
         }
 
@@ -81,50 +80,37 @@ public class LongPitchScoreInputActivity extends AppCompatActivity {
         np2.setWrapSelectorWheel(true);
         np3.setWrapSelectorWheel(true);
 
-        if(ssd != null) {
-            //attempt to instantiate the Long Sand Drill object from DB
-            np1.setValue(ssd.getNumberInside6Ft());
-            np2.setValue(ssd.getNumberInside3Ft());
-            np3.setValue(ssd.getNumberInHole());
+        if(scd != null) {
+            //attempt to instantiate the Short Chip Drill object from DB
+            np1.setValue(scd.getNumberInside6Ft());
+            np2.setValue(scd.getNumberInside3Ft());
+            np3.setValue(scd.getNumberInHole());
         } else {
             //create a blank SC Drill object
-            ssd = new GenericShortGameDrill();
-            ssd.setId(-1);
-            ssd.setDrillHandicap(999);
-            ssd.setGrade("XXX");
-            ssd.setNumberOutside(0);
-            ssd.setNumberInside6Ft(0);
-            ssd.setNumberInside3Ft(0);
-            ssd.setNumberInHole(0);
-            ssd.setNotes("");
-            ssd.setCardId(-1);
-            ssd.setTotalScore(0);
-            ssd.setDate_played("");
-            ssd.setDrillType(scDbHelper.SC_LONG_PITCH_DRILL_ID);
+            scd = new GenericShortGameDrill(-1, getStringDate(), 0, card_id, "", 0, 0, 0, 0, "", 999, GolfPracticeDBHelper.SC_ROUGH_CHIP_DRILL_ID);
         }
 
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.main_layout);
 
-        mainLayout.setOnTouchListener(new OnSwipeTouchListener(LongPitchScoreInputActivity.this) {
+        mainLayout.setOnTouchListener(new OnSwipeTouchListener(RoughChipScoreInputActivity.this) {
             public void onSwipeLeft() {
-                iDest = RoughChipScoreInputActivity.class;
+                iDest = LobShotScoreInputActivity.class;
                 saveDrill(null);
             }
             public void onSwipeRight() {
-                iDest = MediumPitchScoreInputActivity.class;
+                iDest = LongPitchScoreInputActivity.class;
                 saveDrill(null);
             }
         });
     }
 
     /*
-     * This will update the Drill Java object and save it to DB.
+     * This will update the  Drill Java object and save it to DB.
      * If necessary, a Card Object will also be saved.
      */
 
     public void saveDrill(View view){
-        Log.i(TAG,"Saving LP Drill");
-        long ssDrillID;
+        long scDrillID;
 
         //If view is null then this means we are calling this save method from a SWIPE event.
         //If view is not null, it means we are calling this from the save button in Activity
@@ -144,29 +130,23 @@ public class LongPitchScoreInputActivity extends AppCompatActivity {
             }
 
             int hcap = getHcapFromScore(getTotalScore());
-            ssd.setDrillHandicap(hcap);
-            ssd.setDate_played(getStringDate());
-            ssd.setTotalScore(getTotalScore());
-            ssd.setCardId(card_id);
-            ssd.setNumberInHole(np3.getValue());
-            ssd.setNumberInside3Ft(np2.getValue());
-            ssd.setNumberInside6Ft(np1.getValue());
-            ssd.setNumberOutside(10-np3.getValue()-np2.getValue()-np1.getValue());
-            ssd.setDrillHandicap(getHcapFromScore(getTotalScore()));
-            ssd.setDrillType(scDbHelper.SC_LONG_PITCH_DRILL_ID);
+            scd.setDrillHandicap(hcap);
+            scd.setDate_played(getStringDate());
+            scd.setTotalScore(getTotalScore());
+            scd.setCardId(card_id);
+            scd.setNumberInHole(np3.getValue());
+            scd.setNumberInside3Ft(np2.getValue());
+            scd.setNumberInside6Ft(np1.getValue());
+            scd.setNumberOutside(10-np3.getValue()-np2.getValue()-np1.getValue());
+            scd.setDrillType(GolfPracticeDBHelper.SC_ROUGH_CHIP_DRILL_ID);
 
-            if (ssd.getId()==-1) {
+            if (scd.getId()==-1) {
                 //Create the drill as it is new
-                ssDrillID = scDbHelper.createShortGameDrill(ssd);
-                ssd.setId((int)ssDrillID);
-                //Toast.makeText(this, "Short Game Drill Saved ["+ssDrillID+"]", Toast.LENGTH_LONG).show();
-                Log.i(TAG, "just CREATED a row!!");
+                scDrillID = scDbHelper.createShortGameDrill(scd);
+                scd.setId((int)scDrillID);
             } else {
                 //Update the drill as it exists
-                int rowsUpdated = scDbHelper.updateShortGameDrill(ssd);
-                //ssDrillID = ssd.getId();
-                //Toast.makeText(this, "Short Game Drill Updated ["+ssDrillID+"]", Toast.LENGTH_LONG).show();
-                Log.v(TAG, "just UPDATED a row!!");
+                int rowsUpdated = scDbHelper.updateShortGameDrill(scd);
             }
 
             //send us back to the SG Drills menu and pop-up message saying the drill has been saved
@@ -176,6 +156,7 @@ public class LongPitchScoreInputActivity extends AppCompatActivity {
             i.putExtra("CARD_ID", card_id);
             startActivity(i);
         }
+
     }
 
     /*
@@ -187,27 +168,27 @@ public class LongPitchScoreInputActivity extends AppCompatActivity {
         if (score > 17) return -8;
 
         switch (score) {
-            case 0: return 39;
-            case 1: return 34;
+            case 0: return 38;
+            case 1: return 33;
             case 2: return 29;
-            case 3: return 25;
-            case 4: return 21;
-            case 5: return 17;
-            case 6: return 13;
-            case 7: return 10;
-            case 8: return 7;
-            case 9: return 5;
-            case 10: return 3;
-            case 11: return 0;
-            case 12: return -2;
-            case 13: return -4;
-            case 14: return -5;
+            case 3: return 26;
+            case 4: return 23;
+            case 5: return 20;
+            case 6: return 17;
+            case 7: return 14;
+            case 8: return 11;
+            case 9: return 8;
+            case 10: return 5;
+            case 11: return 2;
+            case 12: return 0;
+            case 13: return -2;
+            case 14: return -4;
             case 15: return -6;
             case 16: return -7;
             case 17: return -8;
         }
-        Log.e(TAG, "LP H'cap Lookup: Can't find hcap for value: "+score);
-        return 39;
+        Log.e("RC Hcap Lookup", "Can't find hcap for value: "+score);
+        return 40;
     }
 
     /*
@@ -215,19 +196,19 @@ public class LongPitchScoreInputActivity extends AppCompatActivity {
      * This is actually different to having all zero values.
      */
 
-    public void clearLongPitchDrill(View view){
-        Log.i(TAG,"clearing LP Drill");
+    public void clearDrill(View view){
+        Log.i(TAG,"clearing RC Drill");
 
-        if(ssd.getId() != -1) {
+        if(scd.getId() != -1) {
             try {
                 //if the drill exists, then delete it.
-                scDbHelper.deleteShortGameDrill(ssd.getId());
-                Log.i(TAG,"LP Drill deleted successfully");
+                scDbHelper.deleteShortGameDrill(scd.getId());
+                Log.i(TAG,"RC Drill deleted successfully");
             }catch (Exception e) {
-                Log.e(TAG, "Failed to delete a Long Pitch Drill on clearing");
+                Log.e(TAG, "Failed to delete a Rough Chip Drill on clearing");
             }
         }
-        ssd = null;
+
         Intent i = new Intent(this, ShortGameDrillsActivity.class);
         i.putExtra("CARD_ID", card_id);
         startActivity(i);

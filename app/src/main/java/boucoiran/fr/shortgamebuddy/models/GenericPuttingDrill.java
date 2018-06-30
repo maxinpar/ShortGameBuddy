@@ -1,11 +1,10 @@
-package PuttingDrills;
+package boucoiran.fr.shortgamebuddy.models;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import data.GolfPracticeContract;
-import data.GolfPracticeContract.PuttingDrillEntry;
+import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingDrillEntry;
 
 
 /*

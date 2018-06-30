@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.activities.shortGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import data.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.activities.menus.MainMenuActivity;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 
 public class ShortGameDrillsActivity extends AppCompatActivity {
 
@@ -44,7 +46,6 @@ public class ShortGameDrillsActivity extends AppCompatActivity {
             displayBadges();
         } catch (Exception e) {
         }
-        ;
     }
 
 
@@ -184,7 +185,7 @@ public class ShortGameDrillsActivity extends AppCompatActivity {
      * It will then display the score as  badge for each drill.
      */
 
-    private void displayBadges() throws Exception {
+    private void displayBadges() {
         Log.i(TAG, "We are trying to display some badges");
         TextView badge = null;
         int completedDrills = 0;
@@ -198,23 +199,23 @@ public class ShortGameDrillsActivity extends AppCompatActivity {
             Log.i(TAG, "/tbadgescores["+i+"]"+badgeScores[i]);
             if (!badgeScores[i].equals("-1")) {
                 completedDrills++;
-                if (i == scDbHelper.SC_SHORT_CHIP_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_SHORT_CHIP_DRILL_ID)
                     badge = (TextView) findViewById(R.id.shortChip_Badge);
-                if (i == scDbHelper.SC_LONG_CHIP_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_LONG_CHIP_DRILL_ID)
                     badge = (TextView) findViewById(R.id.longChip_Badge);
-                if (i == scDbHelper.SC_SHORT_SAND_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_SHORT_SAND_DRILL_ID)
                     badge = (TextView) findViewById(R.id.shortSand_Badge);
-                if(i==scDbHelper.SC_LONG_SAND_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_LONG_SAND_DRILL_ID)
                     badge = (TextView) findViewById(R.id.longSand_Badge);
-                if(i==scDbHelper.SC_SHORT_PITCH_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_SHORT_PITCH_DRILL_ID)
                     badge = (TextView) findViewById(R.id.shortPitch_Badge);
-                if(i==scDbHelper.SC_MEDIUM_PITCH_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_MEDIUM_PITCH_DRILL_ID)
                     badge = (TextView) findViewById(R.id.mediumPitch_Badge);
-                if(i==scDbHelper.SC_LONG_PITCH_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_LONG_PITCH_DRILL_ID)
                     badge = (TextView) findViewById(R.id.longPitch_Badge);
-                if(i==scDbHelper.SC_LOB_SHOT_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_LOB_SHOT_DRILL_ID)
                     badge = (TextView) findViewById(R.id.LobShot_Badge);
-                if(i==scDbHelper.SC_ROUGH_CHIP_DRILL_ID)
+                if (i == GolfPracticeDBHelper.SC_ROUGH_CHIP_DRILL_ID)
                     badge = (TextView) findViewById(R.id.RoughChip_Badge);
 
                 badge.setVisibility(View.VISIBLE);

@@ -1,9 +1,11 @@
-package PuttingDrills;
+package boucoiran.fr.shortgamebuddy.models;
 
 /*
  * This is the Java object that is going to represent our full Putting card.
  * It should contain 6 individual drills
  */
+
+import android.database.Cursor;
 
 public class PuttingCard {
 
@@ -20,6 +22,21 @@ public class PuttingCard {
         this.totalScore = totalScore;
         Grade = grade;
         this.handicap = handicap;
+    }
+
+    public PuttingCard(Cursor c) throws Exception {
+        if (c != null) {
+            c.moveToFirst();
+
+            this.setId(c.getInt(c.getColumnIndex(GolfPracticeContract.PuttingCardEntry._ID)));
+            this.setIsComplete(c.getInt(c.getColumnIndex(GolfPracticeContract.PuttingCardEntry.COLUMN_IS_COMPLETE)));
+            this.setTotalScore(c.getInt(c.getColumnIndex(GolfPracticeContract.PuttingCardEntry.COLUMN_TOTAL_SCORE)));
+            this.setGrade(c.getString(c.getColumnIndex(GolfPracticeContract.PuttingCardEntry.COLUMN_GRADE)));
+            this.setLastUpdated(c.getString(c.getColumnIndex(GolfPracticeContract.PuttingCardEntry.COLUMN_LAST_UPDATE)));
+            this.setHandicap(c.getInt(c.getColumnIndex(GolfPracticeContract.PuttingCardEntry.COLUMN_HANDICAP)));
+        } else {
+            throw new Exception("Could not instantiate a GENERIC Putting Card from cursor");
+        }
     }
 
     public PuttingCard() {

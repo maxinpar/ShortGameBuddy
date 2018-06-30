@@ -1,9 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="boucoiran.fr.shortgamebuddy.PuttingDrillsActivity">
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-</android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_1"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column1"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="openShort3ftPuttActivity"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SC_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/short3ftputtImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/shortchipfinal" />
+
+                <TextView
+                    android:id="@+id/short3ftPutt_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/short3ftputtImg"
+                    android:layout_alignRight="@id/short3ftputtImg"
+                    android:text="10" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/shortChipTitle"
+                style="@style/DrillMenuText"
+                android:text="3ft putts" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_1_column2"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:onClick="openShort6ftPuttActivity"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LC_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/short6ftputtImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/longchipfinal" />
+
+                <TextView
+                    android:id="@+id/short6ftPutt_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/short6ftputtImg"
+                    android:layout_alignRight="@id/short6ftputtImg"
+                    android:text="" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/longChipTitle"
+                style="@style/DrillMenuText"
+                android:text="6ft putts" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_2"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column1"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:onClick="openMakeablePuttActivity"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LS_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/makeableImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/longsandfinal" />
+
+                <TextView
+                    android:id="@+id/makeable_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/makeableImg"
+                    android:layout_alignRight="@id/makeableImg"
+                    android:text="10" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/longSandTitle"
+                style="@style/DrillMenuText"
+                android:text="Makeable Putts" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_2_column2"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:onClick="openMediumPuttActivity"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_SP_img_txt"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/mediumPuttImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/shortpitchfinal" />
+
+                <TextView
+                    android:id="@+id/medium_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/mediumPuttImg"
+                    android:layout_alignRight="@id/mediumPuttImg"
+                    android:text="10" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/shortPitchTitle"
+                style="@style/DrillMenuText"
+                android:text="Medium Putts" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_3"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="2"
+        android:weightSum="2">
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column1"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:onClick="openLagPuttActivity"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_LP"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/lagImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/longpitchfinal" />
+
+                <TextView
+                    android:id="@+id/lag_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/lagImg"
+                    android:layout_alignRight="@id/lagImg"
+                    android:text="10" />
+
+            </RelativeLayout>
+
+            <TextView
+                style="@style/DrillMenuText"
+                android:text="Lag Putts" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_drill_line_3_column2"
+            android:layout_width="0px"
+            android:orientation="vertical"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:onClick="openBigBreakPuttActivity"
+            android:weightSum="10">
+
+            <RelativeLayout
+                android:id="@+id/rl_RC"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="8">
+
+                <ImageView
+                    android:id="@+id/BBImg"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:src="@drawable/roughchipfinal" />
+
+                <TextView
+                    android:id="@+id/big_break_Badge"
+                    style="@style/BadgeTextView"
+                    android:layout_alignBottom="@id/BBImg"
+                    android:layout_alignRight="@id/BBImg"
+                    android:text="10" />
+
+            </RelativeLayout>
+
+            <TextView
+                style="@style/DrillMenuText"
+                android:text="Big Breaking Putts" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:gravity="center_vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="openMainMenu"
+            android:text="Back" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Scorecard"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="openScorecardActivity" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.activities.shortGame;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import data.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.activities.menus.MainMenuActivity;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 
 
 public class ShortGameScorecardActivity extends AppCompatActivity {

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="10"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_1"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="scoreInput"
+            android:text="Score Input" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_2"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="3">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="viewCards"
+            android:text="View Cards" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_drill_line_3"
+        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_height="0px"
+        android:layout_weight="3"
+        android:weightSum="3">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="stats"
+            android:text="Stats" />
+    </LinearLayout>
+</LinearLayout>

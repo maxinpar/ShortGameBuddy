@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.utils;
 
 import android.content.Context;
 import android.view.GestureDetector;

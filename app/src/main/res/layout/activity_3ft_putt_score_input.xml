@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scaleType="fitXY"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        style="@style/drillInputScoreImage"
+        android:id="@+id/imageView"
+        android:onClick="openInfo"
+        android:src="@drawable/shortchiplong" />
+
+    <View style="@style/dividerLine" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="4">
+
+        <LinearLayout
+            style="@style/scoreInputLine"
+            android:layout_weight="3">
+
+            <TextView
+                style="@style/scoreInputNumberPickerLabel"
+                android:text="#Balls in the hole" />
+
+            <NumberPicker
+                android:theme="@style/DefaultNumberPickerTheme"
+                style="@style/DefaultNumberPickerTheme"
+                android:id="@+id/NP1" />
+        </LinearLayout>
+
+        <View style="@style/dividerLine" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:paddingLeft="80px"
+            android:paddingRight="80px"
+            android:baselineAligned="false"
+            android:gravity="center_vertical">
+
+            <Button
+                style="@style/scoreInputButton"
+                android:onClick="clearShortChipDrill"
+                android:text="Clear" />
+
+            <Button
+                style="@style/scoreInputButton"
+                android:text="Save"
+                android:onClick="saveDrill" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

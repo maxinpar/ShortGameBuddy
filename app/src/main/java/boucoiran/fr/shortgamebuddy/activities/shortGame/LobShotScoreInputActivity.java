@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.activities.shortGame;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,11 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import ChippingDrills.GenericShortGameDrill;
-import ChippingDrills.ShortGameCard;
-import data.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.models.GenericShortGameDrill;
+import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.utils.OnSwipeTouchListener;
 
 
 public class LobShotScoreInputActivity extends AppCompatActivity {
@@ -55,7 +57,7 @@ public class LobShotScoreInputActivity extends AppCompatActivity {
         card_id = getIntent().getIntExtra("CARD_ID", -1);
         if (card_id != -1) {
             try{
-                scd = scDbHelper.getShortGameDrill(card_id, scDbHelper.SC_LOB_SHOT_DRILL_ID);
+                scd = scDbHelper.getShortGameDrill(card_id, GolfPracticeDBHelper.SC_LOB_SHOT_DRILL_ID);
             } catch (Exception e) {
                 Log.i(TAG, "Failed to load lob shot object when starting Activity. Card id is " + card_id);
                 Log.i(TAG, "setting drill to null");
@@ -86,7 +88,7 @@ public class LobShotScoreInputActivity extends AppCompatActivity {
             np3.setValue(scd.getNumberInHole());
         } else {
             //create a blank SC Drill object
-            scd = new GenericShortGameDrill(-1, getStringDate(), 0, card_id, "", 0, 0, 0, 0, "", 999, scDbHelper.SC_LOB_SHOT_DRILL_ID);
+            scd = new GenericShortGameDrill(-1, getStringDate(), 0, card_id, "", 0, 0, 0, 0, "", 999, GolfPracticeDBHelper.SC_LOB_SHOT_DRILL_ID);
         }
 
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.main_layout);
@@ -137,7 +139,7 @@ public class LobShotScoreInputActivity extends AppCompatActivity {
             scd.setNumberInside3Ft(np2.getValue());
             scd.setNumberInside6Ft(np1.getValue());
             scd.setNumberOutside(10-np3.getValue()-np2.getValue()-np1.getValue());
-            scd.setDrillType(scDbHelper.SC_LOB_SHOT_DRILL_ID);
+            scd.setDrillType(GolfPracticeDBHelper.SC_LOB_SHOT_DRILL_ID);
 
             if (scd.getId()==-1) {
                 //Create the drill as it is new

@@ -1,11 +1,13 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.activities.menus;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import boucoiran.fr.shortgamebuddy.stats.Activities.ShowCardsActivity;
+import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortGameDrillsActivity;
+import boucoiran.fr.shortgamebuddy.activities.stats.ShowCardsActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void openPuttingActivity (View view) {
         //opens the putting drills menu
-        Intent i = new Intent(this, PuttingDrillsActivity.class);
+        Intent i = new Intent(this, PuttingMenuActivity.class);
         startActivity(i);
     }
 

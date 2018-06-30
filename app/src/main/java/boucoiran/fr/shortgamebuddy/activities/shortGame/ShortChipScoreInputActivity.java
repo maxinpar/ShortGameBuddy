@@ -1,4 +1,4 @@
-package boucoiran.fr.shortgamebuddy;
+package boucoiran.fr.shortgamebuddy.activities.shortGame;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,9 +13,11 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import ChippingDrills.GenericShortGameDrill;
-import ChippingDrills.ShortGameCard;
-import data.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.models.GenericShortGameDrill;
+import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
+import boucoiran.fr.shortgamebuddy.utils.OnSwipeTouchListener;
 
 
 public class ShortChipScoreInputActivity extends AppCompatActivity {

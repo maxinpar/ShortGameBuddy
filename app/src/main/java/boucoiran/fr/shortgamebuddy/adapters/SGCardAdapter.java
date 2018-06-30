@@ -1,4 +1,4 @@
-package data;
+package boucoiran.fr.shortgamebuddy.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,9 +15,10 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import ChippingDrills.ShortGameCard;
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.stats.Activities.ShowCardsActivity;
+import boucoiran.fr.shortgamebuddy.activities.stats.ShowCardsActivity;
+import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
+import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 
 public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.OnClickListener {
     private Context mContext;
@@ -94,7 +95,7 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
                         });
 
                 alertDialog.show();
-            };
+            }
         });
 
 

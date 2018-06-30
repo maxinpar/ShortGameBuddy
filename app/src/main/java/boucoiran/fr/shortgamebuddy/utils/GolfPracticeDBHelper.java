@@ -1,4 +1,4 @@
-package data;
+package boucoiran.fr.shortgamebuddy.utils;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -9,19 +9,33 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import ChippingDrills.GenericShortGameDrill;
-import ChippingDrills.ShortGameCard;
-import data.GolfPracticeContract.PuttingDrillEntry;
-import data.GolfPracticeContract.PuttingCardEntry;
-import data.GolfPracticeContract.ShortGameCardEntry;
-import data.GolfPracticeContract.ShortGameDrillEntry;
+import boucoiran.fr.shortgamebuddy.models.GenericPuttingDrill;
+import boucoiran.fr.shortgamebuddy.models.GenericShortGameDrill;
+import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingCardEntry;
+import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingDrillEntry;
+import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.ShortGameCardEntry;
+import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.ShortGameDrillEntry;
+import boucoiran.fr.shortgamebuddy.models.PuttingCard;
+import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
 
 public class GolfPracticeDBHelper extends SQLiteOpenHelper {
 
-    private final static int DATABASE_VERSION = 7;
+    private final static int DATABASE_VERSION = 8;
     private final static String DATABASE_NAME = "GolfPractice.db";
     private final static String TEXT_TYPE = " Text";
     private final static String TAG = "GolfPracticeDBHelper";
+
+    /*
+     * Below are constants for Short Game Drill ID's to be used when linking Short Game Cards to
+     * Short Game Drills
+     */
+    private final static int P_CARD_ID = 0;
+    public final static int P_3FT_PUTT_DRILL_ID = 1;
+    public final static int P_6FT_PUTT_DRILL_ID = 2;
+    public final static int P_MAKEABLE_DRILL_ID = 3;
+    public final static int P_MEDIUM_DRILL_ID = 4;
+    public final static int P_LAG_DRILL_ID = 5;
+    public final static int P_BIG_BREAK_DRILL_ID = 6;
 
     /*
      * Below are constants for Short Game Drill ID's to be used when linking Short Game Cards to
@@ -38,17 +52,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
     public final static int SC_ROUGH_CHIP_DRILL_ID = 8;
     public final static int SC_LOB_SHOT_DRILL_ID = 9;
 
-    /*
-     * Below are constants for Short Game Drill ID's to be used when linking Short Game Cards to
-     * Short Game Drills
-     */
-    private final static int P_CARD_ID = 0;
-    public final static int P_3FT_PUTT_DRILL_ID = 1;
-    public final static int P_6FT_PUTT_DRILL_ID = 2;
-    public final static int P_MAKEABLE_DRILL_ID = 3;
-    public final static int P_MEDIUM_DRILL_ID = 4;
-    public final static int P_LAG_DRILL_ID = 5;
-    public final static int P_BIG_BREAK_DRILL_ID = 6;
+
 
     private String[] drillNames = {"", "Short Chip Drill", "Long Chip Drill", "Short Sand Drill", "Long Sand Drill", "Short Pitch Drill", "Medium Pitch Drill", "Long Pitch Drill", "Chip from Rough", "Lob Shot Drill"};
     private String[] pDrillNames = {"", "3 Footers", "6 Footers", "Makeable Putts", "Medium Putts", "Lag Putts"};
@@ -190,7 +194,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      */
 
     public int updateShortGameDrill(GenericShortGameDrill gd) {
-        int toRet = 0;
+        int toRet;
         SQLiteDatabase db = this.getWritableDatabase();
         toRet = gd.updateToDB(db);
         updateCardCompleteness(gd.getCardId());
@@ -213,13 +217,69 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      *      The id of the SG Card object associated to the drills we want to delte
      */
 
-    public void deleteDrillsFromCard(long sgcId) {
+    private void deleteDrillsFromCard(long sgcId) {
         SQLiteDatabase db = this.getWritableDatabase();
         int rowsDeleted = db.delete(ShortGameDrillEntry.TABLE_NAME, ShortGameDrillEntry.COLUMN_CARD_ID + " = ?",new String[] {String.valueOf(sgcId)});
         updateCardCompleteness((int)sgcId);
         Log.i(TAG, "We have just deleted " + rowsDeleted + " drills associated to card (" + sgcId+") from the Drills table");
     }
 
+
+    /***********************************************************************************************
+     * Below are the 4 main DB helper methods for the Putting Drill Object:                     *
+     *  - Read from DB and instantiate java object                                                 *
+     *  - Create DB entry from object                                                              *
+     *  - Update DB entry from object                                                              *
+     *  - Delete Object from DB
+     *
+     *  also useful:
+     *  - get a putting drill based on drill ID and card id.
+     *
+     **********************************************************************************************/
+
+    public GenericPuttingDrill getPuttingDrill(long drillId) {
+        return PDHelper.getDrill(drillId, this.getWritableDatabase());
+    }
+
+    public long createPuttingDrill(GenericPuttingDrill pd) {
+        return PDHelper.createDrill(pd, this.getWritableDatabase());
+    }
+
+    public int updatePuttingDrill(GenericPuttingDrill pd) {
+        return PDHelper.updateDrill(pd, this.getWritableDatabase());
+    }
+
+    public int deletePuttingDrill(long drillId) {
+        return PDHelper.deleteDrill(drillId, this.getWritableDatabase());
+    }
+
+    public GenericPuttingDrill getPuttingDrill(int cardId, int drillId) throws Exception {
+        return PDHelper.getDrill(cardId, drillId, this.getWritableDatabase());
+    }
+
+    /***********************************************************************************************
+     * Below are the 4 main DB helper methods for the Putting Card Object:                     *
+     *  - Read from DB and instantiate java object                                                 *
+     *  - Create DB entry from object                                                              *
+     *  - Update DB entry from object                                                              *
+     *  - Delete Object from DB                                                                    *
+     **********************************************************************************************/
+
+    public PuttingCard getPuttingCard(long cId) throws Exception {
+        return PDHelper.getCard(cId, this.getWritableDatabase());
+    }
+
+    public long createPuttingCard(PuttingCard pc) {
+        return PDHelper.createCard(pc, this.getWritableDatabase());
+    }
+
+    public int updatePuttingDrill(PuttingCard pc) {
+        return PDHelper.updateCard(pc, this.getWritableDatabase());
+    }
+
+    public int deletePuttingCard(long cId) {
+        return PDHelper.deleteCard(cId, this.getWritableDatabase());
+    }
 
     /***********************************************************************************************
      * Below are the 3 main DB helper methods for the <b>Short Game Card Object</b>:                      *
@@ -288,7 +348,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      * Attempts to Update a Short Game Card object
      */
 
-    public int updateShortGameCard(ShortGameCard sgc) {
+    private int updateShortGameCard(ShortGameCard sgc) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -330,7 +390,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      * @parameter: card_id
      *      The id of the SG Card we want to count the drills for
      */
-    public int countDrills(long card_id) throws Exception {
+    public int countDrills(long card_id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
 
@@ -379,6 +439,10 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
             Log.d(TAG, "Tried to see if card was completed. Failed.");
         }
 
+    }
+
+    public String[] getPuttingDrillScoresFromCard(long cardId) {
+        return PDHelper.getDrillScoresFromCard(cardId, this.getReadableDatabase());
     }
 
     /*
@@ -455,7 +519,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      * to round to the nearest (upper) 5.
      */
 
-    public String getClosestPC(int score, int drillId) {
+    private String getClosestPC(int score, int drillId) {
         int ret = 0;
         int maxScore = 1;
         switch (drillId) {

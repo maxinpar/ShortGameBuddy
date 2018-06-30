@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainMenuActivity"
+        <activity
+            android:name=".activities.menus.MainMenuActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,57 +20,66 @@
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name=".ShortGameDrillsActivity"
+            android:name=".activities.shortGame.ShortGameDrillsActivity"
             android:label="Short Game Drills" />
         <activity
             android:screenOrientation="portrait"
-            android:name=".PuttingDrillsActivity"
-            android:label="Putting Drills" />
-        <activity
-            android:screenOrientation="portrait"
-            android:name=".ShortGameScorecardActivity"
+            android:name=".activities.shortGame.ShortGameScorecardActivity"
             android:label="Short Game Scorecard" />
 
         <activity
-            android:name=".ShortChipScoreInputActivity"
+            android:name=".activities.shortGame.ShortChipScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Short Chip Drill" />
         <activity
-            android:name=".LongChipScoreInputActivity"
+            android:name=".activities.shortGame.LongChipScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Long Chip Drill" />
         <activity
-            android:name=".ShortSandScoreInputActivity"
+            android:name=".activities.shortGame.ShortSandScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Short Sand Drill"/>
         <activity
-            android:name=".LongSandScoreInputActivity"
+            android:name=".activities.shortGame.LongSandScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Long Sand Drill"/>
         <activity
-            android:name=".ShortPitchScoreInputActivity"
+            android:name=".activities.shortGame.ShortPitchScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Short Pitch Drill"/>
         <activity
-            android:name=".MediumPitchScoreInputActivity"
+            android:name=".activities.shortGame.MediumPitchScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Medium Pitch Drill"/>
         <activity
-            android:name=".LongPitchScoreInputActivity"
+            android:name=".activities.shortGame.LongPitchScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Long Pitch Drill"/>
         <activity
-            android:name=".RoughChipScoreInputActivity"
+            android:name=".activities.shortGame.RoughChipScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Chip From Rough Drill"/>
         <activity
-            android:name=".LobShotScoreInputActivity"
+            android:name=".activities.shortGame.LobShotScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Lob Shot Drill"/>
         <activity
-            android:name=".stats.Activities.ShowCardsActivity"
+            android:name=".activities.stats.ShowCardsActivity"
             android:screenOrientation="portrait"
             android:label="View Cards"/>
+        <activity
+            android:name=".activities.menus.PuttingMenuActivity"
+            android:screenOrientation="portrait"
+            android:label="Putting Menu" />
+        <activity
+            android:name=".activities.putting.PuttingDrillsMenuActivity"
+            android:screenOrientation="portrait"
+            android:label="Putting Menu" />
+        <activity
+            android:name=".activities.putting.Short3ftPuttScoreInputActivity"
+            android:screenOrientation="portrait"
+            android:label="Putting Menu" />
+
     </application>
 
 </manifest>
