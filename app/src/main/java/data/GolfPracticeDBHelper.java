@@ -11,8 +11,11 @@ import java.util.ArrayList;
 
 import ChippingDrills.GenericShortGameDrill;
 import ChippingDrills.ShortGameCard;
-import data.GolfPracticeContract.PuttingDrillEntry;
+import PuttingDrills.GenericPuttingDrill;
+import PuttingDrills.PDHelper;
+import PuttingDrills.PuttingCard;
 import data.GolfPracticeContract.PuttingCardEntry;
+import data.GolfPracticeContract.PuttingDrillEntry;
 import data.GolfPracticeContract.ShortGameCardEntry;
 import data.GolfPracticeContract.ShortGameDrillEntry;
 
@@ -190,7 +193,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      */
 
     public int updateShortGameDrill(GenericShortGameDrill gd) {
-        int toRet = 0;
+        int toRet;
         SQLiteDatabase db = this.getWritableDatabase();
         toRet = gd.updateToDB(db);
         updateCardCompleteness(gd.getCardId());
@@ -213,13 +216,61 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      *      The id of the SG Card object associated to the drills we want to delte
      */
 
-    public void deleteDrillsFromCard(long sgcId) {
+    private void deleteDrillsFromCard(long sgcId) {
         SQLiteDatabase db = this.getWritableDatabase();
         int rowsDeleted = db.delete(ShortGameDrillEntry.TABLE_NAME, ShortGameDrillEntry.COLUMN_CARD_ID + " = ?",new String[] {String.valueOf(sgcId)});
         updateCardCompleteness((int)sgcId);
         Log.i(TAG, "We have just deleted " + rowsDeleted + " drills associated to card (" + sgcId+") from the Drills table");
     }
 
+
+    /***********************************************************************************************
+     * Below are the 4 main DB helper methods for the Putting Drill Object:                     *
+     *  - Read from DB and instantiate java object                                                 *
+     *  - Create DB entry from object                                                              *
+     *  - Update DB entry from object                                                              *
+     *  - Delete Object from DB                                                                    *
+     **********************************************************************************************/
+
+    public GenericPuttingDrill getPuttingDrill(long drillId) {
+        return PDHelper.getDrill(drillId, this.getWritableDatabase());
+    }
+
+    public long createPuttingDrill(GenericPuttingDrill pd) {
+        return PDHelper.createDrill(pd, this.getWritableDatabase());
+    }
+
+    public int updatePuttingDrill(GenericPuttingDrill pd) {
+        return PDHelper.updateDrill(pd, this.getWritableDatabase());
+    }
+
+    public int deletePuttingDrill(long drillId) {
+        return PDHelper.deleteDrill(drillId, this.getWritableDatabase());
+    }
+
+    /***********************************************************************************************
+     * Below are the 4 main DB helper methods for the Putting Card Object:                     *
+     *  - Read from DB and instantiate java object                                                 *
+     *  - Create DB entry from object                                                              *
+     *  - Update DB entry from object                                                              *
+     *  - Delete Object from DB                                                                    *
+     **********************************************************************************************/
+
+    public PuttingCard getPuttingCard(long cId) throws Exception {
+        return PDHelper.getCard(cId, this.getWritableDatabase());
+    }
+
+    public long createPuttingCard(PuttingCard pc) {
+        return PDHelper.createCard(pc, this.getWritableDatabase());
+    }
+
+    public int updatePuttingDrill(PuttingCard pc) {
+        return PDHelper.updateCard(pc, this.getWritableDatabase());
+    }
+
+    public int deletePuttingCard(long cId) {
+        return PDHelper.deleteCard(cId, this.getWritableDatabase());
+    }
 
     /***********************************************************************************************
      * Below are the 3 main DB helper methods for the <b>Short Game Card Object</b>:                      *
@@ -288,7 +339,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      * Attempts to Update a Short Game Card object
      */
 
-    public int updateShortGameCard(ShortGameCard sgc) {
+    private int updateShortGameCard(ShortGameCard sgc) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
@@ -330,7 +381,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      * @parameter: card_id
      *      The id of the SG Card we want to count the drills for
      */
-    public int countDrills(long card_id) throws Exception {
+    public int countDrills(long card_id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
 
@@ -455,7 +506,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      * to round to the nearest (upper) 5.
      */
 
-    public String getClosestPC(int score, int drillId) {
+    private String getClosestPC(int score, int drillId) {
         int ret = 0;
         int maxScore = 1;
         switch (drillId) {
