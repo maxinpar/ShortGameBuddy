@@ -67,23 +67,31 @@
 
             <RelativeLayout
                 android:id="@+id/rl_LC_img_txt"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="0px"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="8">
 
-                <ImageView
-                    android:id="@+id/short6ftputtImg"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/short6ft" />
+                <RelativeLayout
+                    android:id="@+id/relative_layout1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
+                    <ImageView
+                        android:id="@+id/short6ftputtImg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="fitStart"
+                        android:adjustViewBounds="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/short6ft" />
+                </RelativeLayout>
                 <TextView
                     android:id="@+id/short6ftPutt_Badge"
                     style="@style/BadgeTextView"
-                    android:layout_alignBottom="@id/short6ftputtImg"
-                    android:layout_alignRight="@id/short6ftputtImg"
+                    android:layout_alignBottom="@id/relative_layout1"
+                    android:layout_alignRight="@id/relative_layout1"
                     android:text="" />
             </RelativeLayout>
 

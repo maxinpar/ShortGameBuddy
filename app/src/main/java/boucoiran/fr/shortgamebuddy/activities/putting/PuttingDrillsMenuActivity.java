@@ -66,10 +66,9 @@ public class PuttingDrillsMenuActivity extends AppCompatActivity {
      * This will open the makeable Putts Score Input Activity
      */
     public void openMakeablePuttActivity(View view) {
-        //TODO uncomment this once built
-        /*Intent i = new Intent(this, MakeablePuttScoreInputActivity.class);
+        Intent i = new Intent(this, MakeablePuttScoreInputActivity.class);
         i.putExtra("CARD_ID", (int) card_id);
-        startActivity(i);*/
+        startActivity(i);
     }
 
     /*
