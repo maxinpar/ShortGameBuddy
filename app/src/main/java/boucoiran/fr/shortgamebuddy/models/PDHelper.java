@@ -1,4 +1,4 @@
-package PuttingDrills;
+package boucoiran.fr.shortgamebuddy.models;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -6,8 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import data.GolfPracticeContract.PuttingCardEntry;
-import data.GolfPracticeContract.PuttingDrillEntry;
+import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingCardEntry;
+import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingDrillEntry;
 
 /*
  * 30/6/2018:  Created this class to store all the Putting Drill Create / Read / Update / Delete

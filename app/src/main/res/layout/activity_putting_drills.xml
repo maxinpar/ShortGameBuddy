@@ -37,7 +37,7 @@
                     android:id="@+id/short3ftputtImg"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:src="@drawable/shortchipfinal" />
+                    android:src="@drawable/short3ft" />
 
                 <TextView
                     android:id="@+id/short3ftPutt_Badge"
@@ -77,7 +77,7 @@
                     android:id="@+id/short6ftputtImg"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:src="@drawable/longchipfinal" />
+                    android:src="@drawable/short6ft" />
 
                 <TextView
                     android:id="@+id/short6ftPutt_Badge"
@@ -125,7 +125,7 @@
                     android:id="@+id/makeableImg"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
-                    android:src="@drawable/longsandfinal" />
+                    android:src="@drawable/makeable" />
 
                 <TextView
                     android:id="@+id/makeable_Badge"

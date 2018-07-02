@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortChipScoreInputActivity;
 import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortSandScoreInputActivity;
 import boucoiran.fr.shortgamebuddy.models.GenericPuttingDrill;
 import boucoiran.fr.shortgamebuddy.models.PuttingCard;
@@ -22,7 +21,7 @@ import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 import boucoiran.fr.shortgamebuddy.utils.OnSwipeTouchListener;
 
 
-public class Short3ftPuttScoreInputActivity extends AppCompatActivity {
+public class Short6ftPuttScoreInputActivity extends AppCompatActivity {
 
     private NumberPicker np1;
 
@@ -34,13 +33,13 @@ public class Short3ftPuttScoreInputActivity extends AppCompatActivity {
     /*
      * Variables below are drill specific
      */
-    private int drillType = GolfPracticeDBHelper.P_3FT_PUTT_DRILL_ID;
+    private int drillType = GolfPracticeDBHelper.P_6FT_PUTT_DRILL_ID;
     //Todo: update both classes below to point to where to go on left and right swipe.
-    private Class rClass = ShortChipScoreInputActivity.class;
+    private Class rClass = Short3ftPuttScoreInputActivity.class;
     private Class lClass = ShortSandScoreInputActivity.class;
-    private static final String title = "3ft putt drill";
-    private static String TAG = "3ftPuttScoreInputActivity";
-    private static final int activityLayout = R.layout.activity_3ft_putt_score_input;
+    private static final String title = "6ft putt drill";
+    private static String TAG = "6ftPuttScoreInputActivity";
+    private static final int activityLayout = R.layout.activity_6ft_putt_score_input;
 
 
     @SuppressLint("SimpleDateFormat")
@@ -65,7 +64,7 @@ public class Short3ftPuttScoreInputActivity extends AppCompatActivity {
     private void setSwipeListeners() {
         LinearLayout mainLayout = (LinearLayout) findViewById(R.id.main_layout);
 
-        mainLayout.setOnTouchListener(new OnSwipeTouchListener(Short3ftPuttScoreInputActivity.this) {
+        mainLayout.setOnTouchListener(new OnSwipeTouchListener(Short6ftPuttScoreInputActivity.this) {
             public void onSwipeLeft() {
                 iDest = lClass;
                 saveDrill(null);

@@ -74,11 +74,15 @@
         <activity
             android:name=".activities.putting.PuttingDrillsMenuActivity"
             android:screenOrientation="portrait"
-            android:label="Putting Menu" />
+            android:label="Putting Drills" />
         <activity
             android:name=".activities.putting.Short3ftPuttScoreInputActivity"
             android:screenOrientation="portrait"
-            android:label="Putting Menu" />
+            android:label="3ft putts" />
+        <activity
+            android:name=".activities.putting.Short6ftPuttScoreInputActivity"
+            android:screenOrientation="portrait"
+            android:label="6ft putts" />
 
     </application>
 

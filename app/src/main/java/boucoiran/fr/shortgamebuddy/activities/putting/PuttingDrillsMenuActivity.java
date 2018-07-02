@@ -57,10 +57,9 @@ public class PuttingDrillsMenuActivity extends AppCompatActivity {
      * This will open the 6ft Putt Score Input Activity
      */
     public void openShort6ftPuttActivity(View view) {
-        //TODO uncomment this once built
-        /*Intent i = new Intent(this, Short6ftPuttScoreInputActivity.class);
+        Intent i = new Intent(this, Short6ftPuttScoreInputActivity.class);
         i.putExtra("CARD_ID", (int) card_id);
-        startActivity(i);*/
+        startActivity(i);
     }
 
     /*
