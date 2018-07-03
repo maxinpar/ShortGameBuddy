@@ -3,6 +3,7 @@ package boucoiran.fr.shortgamebuddy.models;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingDrillEntry;
 
@@ -27,18 +28,6 @@ public class GenericPuttingDrill {
     private String grade;
     private int drillHandicap;
     private int drillType;
-
-
-    public int getNumberInZone() {
-        return numberInZone;
-    }
-
-    public void setNumberInZone(int numberInZone) {
-        this.numberInZone = numberInZone;
-    }
-
-    public GenericPuttingDrill() {
-    }
 
     public GenericPuttingDrill(int id, String dplayed, int score, int card, String notes, int inH, int in3, int in6, int inZone, int out, String grade, int cap, int dtype) {
         setId(id);
@@ -73,11 +62,11 @@ public class GenericPuttingDrill {
             this.setNumberInHole(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_NUM_IN_HOLE)));
             this.setNumberInside3Ft(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_NUM_IN_3FT)));
             this.setNumberInside6Ft(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_NUM_IN_6FT)));
+            this.setNumberInZone(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_NUM_IN_ZONE)));
             this.setNumberOutside(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_NUM_OUTSIDE)));
             this.setGrade(c.getString(c.getColumnIndex(PuttingDrillEntry.COLUMN_GRADE)));
             this.setDrillType(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_DRILL_TYPE)));
             this.setDrillHandicap(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_HANDICAP)));
-            this.setNumberInZone(c.getInt(c.getColumnIndex(PuttingDrillEntry.COLUMN_HANDICAP)));
         } else {
             throw new Exception("Could not instantiate a GENERIC Putting Drill from cursor");
         }
@@ -96,6 +85,7 @@ public class GenericPuttingDrill {
         values.put(PuttingDrillEntry.COLUMN_NUM_IN_3FT, this.getNumberInside3Ft());
         values.put(PuttingDrillEntry.COLUMN_NUM_IN_6FT, this.getNumberInside6Ft());
         values.put(PuttingDrillEntry.COLUMN_NUM_IN_HOLE, this.getNumberInHole());
+        values.put(PuttingDrillEntry.COLUMN_NUM_IN_ZONE, this.getNumberInZone());
         values.put(PuttingDrillEntry.COLUMN_NUM_OUTSIDE, this.getNumberOutside());
         values.put(PuttingDrillEntry.COLUMN_GRADE, this.getGrade());
         values.put(PuttingDrillEntry.COLUMN_HANDICAP, this.getDrillHandicap());
@@ -110,6 +100,8 @@ public class GenericPuttingDrill {
      */
 
     public int updateToDB(SQLiteDatabase db) {
+        Log.d("PuttDrillUpdateMethod", "updating a putting drill. ID is " + this.getId());
+        Log.d("PuttDrillUpdateMethod", "updating a putting drill. #inzone is " + this.getNumberInZone());
         ContentValues values = new ContentValues();
         values.put(PuttingDrillEntry.COLUMN_DATE, this.getDate_played());
         values.put(PuttingDrillEntry.COLUMN_TOTAL_SCORE, this.getTotalScore());
@@ -118,11 +110,11 @@ public class GenericPuttingDrill {
         values.put(PuttingDrillEntry.COLUMN_NUM_IN_3FT, this.getNumberInside3Ft());
         values.put(PuttingDrillEntry.COLUMN_NUM_IN_6FT, this.getNumberInside6Ft());
         values.put(PuttingDrillEntry.COLUMN_NUM_IN_HOLE, this.getNumberInHole());
+        values.put(PuttingDrillEntry.COLUMN_NUM_IN_ZONE, this.getNumberInZone());
         values.put(PuttingDrillEntry.COLUMN_NUM_OUTSIDE, this.getNumberOutside());
         values.put(PuttingDrillEntry.COLUMN_GRADE, this.getGrade());
         values.put(PuttingDrillEntry.COLUMN_HANDICAP, this.getDrillHandicap());
         values.put(PuttingDrillEntry.COLUMN_DRILL_TYPE, this.getDrillType());
-        values.put(PuttingDrillEntry.COLUMN_NUM_IN_ZONE, this.getNumberInZone());
 
         // updating row
         return db.update(PuttingDrillEntry.TABLE_NAME, values, PuttingDrillEntry._ID + " = ?",
@@ -223,6 +215,14 @@ public class GenericPuttingDrill {
 
     public void setDrillHandicap(int drillHandicap) {
         this.drillHandicap = drillHandicap;
+    }
+
+    public int getNumberInZone() {
+        return numberInZone;
+    }
+
+    public void setNumberInZone(int numberInZone) {
+        this.numberInZone = numberInZone;
     }
 
 }

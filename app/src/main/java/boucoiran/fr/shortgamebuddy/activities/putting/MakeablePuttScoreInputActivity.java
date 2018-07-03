@@ -85,6 +85,9 @@ public class MakeablePuttScoreInputActivity extends AppCompatActivity {
         if (cardId != -1) {
             try {
                 gpd = scDbHelper.getPuttingDrill(cardId, drillType);
+                Log.d(TAG, "we found a drill. ID is: "+gpd.getId());
+                Log.d(TAG, "its # of balls in zone is : "+gpd.getNumberInZone());
+                Log.d(TAG, "its # of balls in hole is : "+gpd.getNumberInHole());
             } catch (Exception e) {
                 Log.e(TAG, "Failed to load drill object when starting Activity. Card id is " + card_id);
                 Log.e(TAG, "setting drill to null");
@@ -112,6 +115,9 @@ public class MakeablePuttScoreInputActivity extends AppCompatActivity {
 
         if (gpd != null) {
             //attempt to instantiate the Drill object from DB
+            Log.d(TAG, "Got a card, setting up number picker. NP1 (balls in zone): " +gpd.getNumberInZone());
+            Log.d(TAG, "Got a card, setting up number picker. NP2 (balls in hole): " +gpd.getNumberInHole());
+
             np1.setValue(gpd.getNumberInZone());
             np2.setValue(gpd.getNumberInHole());
         } else {
@@ -146,7 +152,7 @@ public class MakeablePuttScoreInputActivity extends AppCompatActivity {
         if (view != null) iDest = PuttingDrillsMenuActivity.class;
 
         //Check to see we have not hit too many balls
-        if (np1.getValue() > 10) {
+        if (np1.getValue() + np2.getValue() > 10) {
             Toast.makeText(this, "oops, you hit too many balls! Max of 10!", Toast.LENGTH_LONG).show();
         } else {
             //First, check if a Card already exists.
@@ -156,6 +162,8 @@ public class MakeablePuttScoreInputActivity extends AppCompatActivity {
                 card_id = (int) scDbHelper.createPuttingCard(pc);
             }
 
+            Log.d(TAG, "Setting score. NP1 (balls in zone): " +np1.getValue());
+            Log.d(TAG, "Setting score. NP2 (balls in hole): " +np2.getValue());
             //update Drill object
             int hcap = getHcapFromScore(getTotalScore());
             gpd.setDrillHandicap(hcap);
@@ -164,14 +172,15 @@ public class MakeablePuttScoreInputActivity extends AppCompatActivity {
             gpd.setNumberInHole(np2.getValue());
             gpd.setNumberInside3Ft(0);
             gpd.setNumberInside6Ft(0);
-            gpd.setNumberOutside(10 - np1.getValue());
-            gpd.setNumberInZone(np2.getValue());
+            gpd.setNumberOutside(10 - np1.getValue()-np2.getValue());
+            gpd.setNumberInZone(np1.getValue());
             gpd.setDate_played(getStringDate());
             gpd.setDrillType(drillType);
 
             if (gpd.getId() == -1) {
                 //Create the drill as it is new
                 scDrillID = scDbHelper.createPuttingDrill(gpd);
+                Log.d(TAG, "Created a putting drill. The Id is " + scDrillID);
                 gpd.setId((int) scDrillID);
             } else {
                 //Update the drill as it exists
