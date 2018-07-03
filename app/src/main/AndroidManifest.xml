@@ -87,6 +87,10 @@
             android:name=".activities.putting.MakeablePuttScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Makeable putts" />
+        <activity
+            android:name=".activities.putting.MediumPuttScoreInputActivity"
+            android:screenOrientation="portrait"
+            android:label="Medium putts" />
 
     </application>
 

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import java.util.Arrays;
 
 import boucoiran.fr.shortgamebuddy.R;
+import boucoiran.fr.shortgamebuddy.activities.menus.PuttingMenuActivity;
 import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 
 public class PuttingDrillsMenuActivity extends AppCompatActivity {
@@ -75,10 +76,9 @@ public class PuttingDrillsMenuActivity extends AppCompatActivity {
      * This will open the medium Putts Score Input Activity
      */
     public void openMediumPuttActivity(View view) {
-        //TODO uncomment this once built
-       /* Intent i = new Intent(this, MediumPuttScoreInputActivity.class);
+        Intent i = new Intent(this, MediumPuttScoreInputActivity.class);
         i.putExtra("CARD_ID", (int) card_id);
-        startActivity(i);*/
+        startActivity(i);
     }
 
     /*
@@ -120,12 +120,9 @@ public class PuttingDrillsMenuActivity extends AppCompatActivity {
      * This will Go back to the main screen
      */
     public void openMainMenu(View view) {
-        //TODO uncomment this once built
-/*
         Intent i = new Intent(this, PuttingMenuActivity.class);
         i.putExtra("CARD_ID", (int) card_id);
         startActivity(i);
-*/
     }
 
     /*

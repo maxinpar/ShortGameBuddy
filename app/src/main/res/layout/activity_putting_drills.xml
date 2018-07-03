@@ -97,40 +97,28 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_drill_line_2_column2"
-            android:layout_width="0px"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:onClick="openMediumPuttActivity"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:weightSum="10">
+            style="@style/puttDrillMenuColumn"
+            android:onClick="openMediumPuttActivity">
 
-            <RelativeLayout
-                android:id="@+id/rl_SP_img_txt"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="8">
+            <RelativeLayout style="@style/puttDrillMenuImgBadgeHolder">
 
-                <ImageView
-                    android:id="@+id/mediumPuttImg"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/shortpitchfinal" />
+                <RelativeLayout
+                    android:id="@+id/RLMedP"
+                    style="@style/puttDrillMenuImgHolder">
+
+                    <ImageView
+                        style="@style/puttDrillMenuImg"
+                        android:src="@drawable/mediumputts" />
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/medium_Badge"
                     style="@style/BadgeTextView"
-                    android:layout_alignBottom="@id/mediumPuttImg"
-                    android:layout_alignRight="@id/mediumPuttImg"
-                    android:text="10" />
+                    android:layout_alignBottom="@id/RLMedP"
+                    android:layout_alignRight="@id/RLMedP" />
             </RelativeLayout>
-
             <TextView
-                android:id="@+id/shortPitchTitle"
                 style="@style/DrillMenuText"
                 android:text="Medium Putts" />
         </LinearLayout>
