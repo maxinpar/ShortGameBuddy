@@ -126,5 +126,49 @@
         <item name="android:layout_margin">40px</item>
     </style>
 
+    <!-- Styles for Putting Drill Menu Below -->
+
+    <style name="puttDrillMenuLine">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0px</item>
+        <item name="android:layout_weight">3</item>
+        <item name="android:weightSum">2</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="puttDrillMenuColumn">
+        <item name="android:layout_width">0px</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:weightSum">10</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="puttDrillMenuImgBadgeHolder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0px</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_weight">8</item>
+    </style>
+
+    <style name="puttDrillMenuImgHolder">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="puttDrillMenuImg">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scaleType">fitStart</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <!-- End of Styles for Putting Drill Menu -->
 
 </resources>

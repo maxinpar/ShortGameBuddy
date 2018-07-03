@@ -6,145 +6,92 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <LinearLayout
-        android:id="@+id/layout_drill_line_1"
-        android:layout_width="fill_parent"
-        android:layout_height="0px"
-        android:layout_weight="3"
-        android:orientation="horizontal"
-        android:weightSum="2">
+    <LinearLayout style="@style/puttDrillMenuLine">
 
         <LinearLayout
-            android:id="@+id/layout_drill_line_1_column1"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:onClick="openShort3ftPuttActivity"
-            android:orientation="vertical"
-            android:weightSum="10">
+            style="@style/puttDrillMenuColumn"
+            android:onClick="openShort3ftPuttActivity">
 
-            <RelativeLayout
-                android:id="@+id/rl_SC_img_txt"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="8">
+            <RelativeLayout style="@style/puttDrillMenuImgBadgeHolder">
 
-                <ImageView
-                    android:id="@+id/short3ftputtImg"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/short3ft" />
+                <RelativeLayout
+                    android:id="@+id/RL3FT"
+                    style="@style/puttDrillMenuImgHolder">
+
+                    <ImageView
+                        style="@style/puttDrillMenuImg"
+                        android:src="@drawable/short3ft" />
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/short3ftPutt_Badge"
                     style="@style/BadgeTextView"
-                    android:layout_alignBottom="@id/short3ftputtImg"
-                    android:layout_alignRight="@id/short3ftputtImg"
-                    android:text="10" />
+                    android:layout_alignBottom="@id/RL3FT"
+                    android:layout_alignRight="@id/RL3FT" />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/shortChipTitle"
                 style="@style/DrillMenuText"
                 android:text="3ft putts" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_drill_line_1_column2"
-            android:layout_width="0px"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:onClick="openShort6ftPuttActivity"
-            android:orientation="vertical"
-            android:weightSum="10">
+            style="@style/puttDrillMenuColumn"
+            android:onClick="openShort6ftPuttActivity">
 
-            <RelativeLayout
-                android:id="@+id/rl_LC_img_txt"
-                android:layout_width="wrap_content"
-                android:layout_height="0px"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="8">
+            <RelativeLayout style="@style/puttDrillMenuImgBadgeHolder">
 
                 <RelativeLayout
                     android:id="@+id/relative_layout1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    style="@style/puttDrillMenuImgHolder">
 
                     <ImageView
-                        android:id="@+id/short6ftputtImg"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:scaleType="fitStart"
-                        android:adjustViewBounds="true"
-                        android:layout_centerHorizontal="true"
+                        style="@style/puttDrillMenuImg"
                         android:src="@drawable/short6ft" />
+
                 </RelativeLayout>
+
                 <TextView
                     android:id="@+id/short6ftPutt_Badge"
                     style="@style/BadgeTextView"
                     android:layout_alignBottom="@id/relative_layout1"
-                    android:layout_alignRight="@id/relative_layout1"
-                    android:text="" />
+                    android:layout_alignRight="@id/relative_layout1" />
+
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/longChipTitle"
                 style="@style/DrillMenuText"
                 android:text="6ft putts" />
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layout_drill_line_2"
-        android:layout_width="fill_parent"
-        android:orientation="horizontal"
-        android:layout_height="0px"
-        android:layout_weight="3"
-        android:weightSum="2">
+    <LinearLayout style="@style/puttDrillMenuLine">
 
         <LinearLayout
-            android:id="@+id/layout_drill_line_2_column1"
-            android:layout_width="0px"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:onClick="openMakeablePuttActivity"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
-            android:weightSum="10">
+            style="@style/puttDrillMenuColumn"
+            android:onClick="openMakeablePuttActivity">
 
-            <RelativeLayout
-                android:id="@+id/rl_LS_img_txt"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="8">
+            <RelativeLayout style="@style/puttDrillMenuImgBadgeHolder">
 
-                <ImageView
-                    android:id="@+id/makeableImg"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/makeable" />
+                <RelativeLayout
+                    android:id="@+id/RLMP"
+                    style="@style/puttDrillMenuImgHolder">
+
+                    <ImageView
+                        style="@style/puttDrillMenuImg"
+                        android:src="@drawable/makeable" />
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/makeable_Badge"
                     style="@style/BadgeTextView"
-                    android:layout_alignBottom="@id/makeableImg"
-                    android:layout_alignRight="@id/makeableImg"
-                    android:text="10" />
+                    android:layout_alignBottom="@id/RLMP"
+                    android:layout_alignRight="@id/RLMP" />
             </RelativeLayout>
-
             <TextView
-                android:id="@+id/longSandTitle"
                 style="@style/DrillMenuText"
                 android:text="Makeable Putts" />
         </LinearLayout>
