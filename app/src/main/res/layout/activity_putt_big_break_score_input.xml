@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/main_layout"
+<LinearLayout android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,7 +9,6 @@
     <ImageView
         style="@style/drillInputScoreImage"
         android:id="@+id/imageView"
-        android:onClick="openInfo"
         android:src="@drawable/shortchiplong" />
 
     <View style="@style/dividerLine" />
@@ -21,14 +19,30 @@
         android:orientation="vertical"
         android:weightSum="4">
 
-        <LinearLayout style="@style/scoreInputLine"
-            android:layout_weight="3">
-            <TextView style="@style/scoreInputNumberPickerLabel"
-                android:text="#Balls in the hole" />
+        <LinearLayout style="@style/scoreInputLine">
+
+            <TextView
+                style="@style/scoreInputNumberPickerLabel"
+                android:text="#Balls hit in the zone:" />
+
             <NumberPicker
                 android:theme="@style/DefaultNumberPickerTheme"
                 style="@style/DefaultNumberPickerTheme"
-                android:id="@+id/NP1"/>
+                android:id="@+id/NP1" />
+        </LinearLayout>
+
+        <View style="@style/dividerLine" />
+
+        <LinearLayout style="@style/scoreInputLine">
+
+            <TextView
+                style="@style/scoreInputNumberPickerLabel"
+                android:text="#Balls hit in the hole" />
+
+            <NumberPicker
+                android:id="@+id/NP2"
+                android:theme="@style/DefaultNumberPickerTheme"
+                style="@style/DefaultNumberPickerTheme" />
         </LinearLayout>
 
         <View style="@style/dividerLine" />
@@ -51,7 +65,7 @@
             <Button
                 style="@style/scoreInputButton"
                 android:text="Save"
-                android:onClick="saveDrill"/>
+                android:onClick="saveDrill" />
 
         </LinearLayout>
     </LinearLayout>

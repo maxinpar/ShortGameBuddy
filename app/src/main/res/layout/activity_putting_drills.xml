@@ -125,90 +125,60 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layout_drill_line_3"
-        android:layout_width="fill_parent"
-        android:orientation="horizontal"
-        android:layout_height="0px"
-        android:layout_weight="2"
-        android:weightSum="2">
+    <LinearLayout style="@style/puttDrillMenuLine">
 
         <LinearLayout
-            android:id="@+id/layout_drill_line_3_column1"
-            android:layout_width="0px"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
-            android:onClick="openLagPuttActivity"
-            android:weightSum="10">
+            style="@style/puttDrillMenuColumn"
+            android:onClick="openLagPuttActivity">
 
-            <RelativeLayout
-                android:id="@+id/rl_LP"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="8">
+            <RelativeLayout style="@style/puttDrillMenuImgBadgeHolder">
 
-                <ImageView
-                    android:id="@+id/lagImg"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/longpitchfinal" />
+                <RelativeLayout
+                    android:id="@+id/RLLP"
+                    style="@style/puttDrillMenuImgHolder">
+
+                    <ImageView
+                        style="@style/puttDrillMenuImg"
+                        android:src="@drawable/makeable" />
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/lag_Badge"
                     style="@style/BadgeTextView"
-                    android:layout_alignBottom="@id/lagImg"
-                    android:layout_alignRight="@id/lagImg"
-                    android:text="10" />
-
+                    android:layout_alignBottom="@id/RLLP"
+                    android:layout_alignRight="@id/RLLP" />
             </RelativeLayout>
-
             <TextView
                 style="@style/DrillMenuText"
                 android:text="Lag Putts" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_drill_line_3_column2"
-            android:layout_width="0px"
-            android:orientation="vertical"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:onClick="openBigBreakPuttActivity"
-            android:weightSum="10">
+            style="@style/puttDrillMenuColumn"
+            android:onClick="openBigBreakPuttActivity">
 
-            <RelativeLayout
-                android:id="@+id/rl_RC"
-                android:layout_width="match_parent"
-                android:layout_height="0px"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="8">
+            <RelativeLayout style="@style/puttDrillMenuImgBadgeHolder">
 
-                <ImageView
-                    android:id="@+id/BBImg"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:src="@drawable/roughchipfinal" />
+                <RelativeLayout
+                    android:id="@+id/RLBB"
+                    style="@style/puttDrillMenuImgHolder">
+
+                    <ImageView
+                        style="@style/puttDrillMenuImg"
+                        android:src="@drawable/makeable" />
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/big_break_Badge"
                     style="@style/BadgeTextView"
-                    android:layout_alignBottom="@id/BBImg"
-                    android:layout_alignRight="@id/BBImg"
-                    android:text="10" />
-
+                    android:layout_alignBottom="@id/RLBB"
+                    android:layout_alignRight="@id/RLBB" />
             </RelativeLayout>
-
             <TextView
                 style="@style/DrillMenuText"
-                android:text="Big Breaking Putts" />
+                android:text="Big Break Putts" />
         </LinearLayout>
     </LinearLayout>
 
@@ -220,27 +190,13 @@
         android:gravity="center_vertical">
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
-            android:background="@drawable/menu_buttons"
+            style="@style/navigationButton"
             android:onClick="openMainMenu"
             android:text="Back" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            style="@style/navigationButton"
             android:text="Scorecard"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/menu_buttons"
             android:onClick="openScorecardActivity" />
 
     </LinearLayout>

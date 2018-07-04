@@ -91,6 +91,14 @@
             android:name=".activities.putting.MediumPuttScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Medium putts" />
+        <activity
+            android:name=".activities.putting.LagPuttScoreInputActivity"
+            android:screenOrientation="portrait"
+            android:label="Lag putts" />
+        <activity
+            android:name=".activities.putting.BigBreakPuttScoreInputActivity"
+            android:screenOrientation="portrait"
+            android:label="Big Breaking putts" />
 
     </application>
 

@@ -85,22 +85,18 @@ public class PuttingDrillsMenuActivity extends AppCompatActivity {
      * This will open the lag Putts Score Input Activity
      */
     public void openLagPuttActivity(View view) {
-        //TODO uncomment this once built
-        /*Intent i = new Intent(this, LagPuttScoreInputActivity.class);
+        Intent i = new Intent(this, LagPuttScoreInputActivity.class);
         i.putExtra("CARD_ID", (int) card_id);
-        startActivity(i);*/
+        startActivity(i);
     }
 
     /*
      * This will open the big break Putts Score Input Activity
      */
     public void openBigBreakPuttActivity(View view) {
-        //TODO uncomment this once built
-/*
         Intent i = new Intent(this, BigBreakPuttScoreInputActivity.class);
         i.putExtra("CARD_ID", (int) card_id);
         startActivity(i);
-*/
     }
 
     /*
