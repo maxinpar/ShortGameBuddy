@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="9">
+
+    <TextView
+        android:id="@+id/dateView"
+        android:textSize="20sp"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:layout_weight="3" />
+
+    <ImageView
+        android:id="@+id/completeView"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/scoreView"
+        android:textSize="24sp"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="2" />
+
+    <TextView
+        android:id="@+id/hcapView"
+        android:textSize="24sp"
+        android:layout_width="0px"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_weight="2" />
+
+    <ImageView
+        android:id="@+id/delView"
+        android:layout_width="0px"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:src="@drawable/delete"
+        android:layout_weight="1" />
+</LinearLayout>

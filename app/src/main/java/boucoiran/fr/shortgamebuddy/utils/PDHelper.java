@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import boucoiran.fr.shortgamebuddy.models.GenericPuttingDrill;
 import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingCardEntry;
 import boucoiran.fr.shortgamebuddy.models.GolfPracticeContract.PuttingDrillEntry;
@@ -60,6 +62,7 @@ public class PDHelper {
         Log.i(TAG, "in getPuttingDrill here is the query we are going to run: " + selectQuery);
         Cursor c = db.rawQuery(selectQuery, null);
         pd = new GenericPuttingDrill(c);
+        c.close();
         return pd;
 
     }
@@ -258,8 +261,8 @@ public class PDHelper {
             PuttingCard pc = getCard(cardID, db);
             pc.setTotalScore(getTotalCardScore(cardID, db));
 
-            if (countDrills(cardID, db) == 9) {
-                Log.d(TAG, "Hey we got 9 drills!!");
+            if (countDrills(cardID, db) == 6) {
+                Log.d(TAG, "Hey we got 6 drills!!");
                 //Card is now complete
                 //let's mark is as complete and update the score
                 pc.setIsComplete(1);
@@ -421,7 +424,7 @@ public class PDHelper {
      */
 
     private static String getClosestPC(int score, int drillId) {
-        int ret = 0;
+        int ret;
         int maxScore = 1;
         switch (drillId) {
             case GolfPracticeDBHelper.P_CARD_ID:
@@ -446,13 +449,34 @@ public class PDHelper {
                 maxScore = 17;
                 break;
         }
-        Log.i(TAG, "getting maxscore for drill " + drillId + " = " + maxScore);
+        Log.i(TAG, "getting max score for drill " + drillId + " = " + maxScore);
 
         ret = Math.round(100 * score / maxScore);
         ret += (5 - (ret % 5));
         if (ret > 100) return "100";
         if (ret == 5) return "05";
         return String.valueOf(ret);
+    }
+
+    /*
+     * This method will create am ArrayList of Putting Cards from the database.
+     */
+
+    public static ArrayList<PuttingCard> getCardsFromDB(SQLiteDatabase db) {
+        ArrayList<PuttingCard> toRet = new ArrayList<>();
+
+        String selectQuery = "SELECT  * FROM " + PuttingCardEntry.TABLE_NAME;
+        Cursor c = db.rawQuery(selectQuery, null);
+        while (c.moveToNext()) {
+            try {
+                PuttingCard pc = getCard(c.getInt(c.getColumnIndex(PuttingCardEntry._ID)), db);
+                toRet.add(pc);
+            } catch (Exception e) {
+                Log.e(TAG, "Error " + e.toString());
+            }
+        }
+        c.close();
+        return toRet;
     }
 
     /*

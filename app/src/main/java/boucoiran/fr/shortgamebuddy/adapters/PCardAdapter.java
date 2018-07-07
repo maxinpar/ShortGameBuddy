@@ -16,11 +16,16 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.activities.stats.ShowSGCardsActivity;
-import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
+import boucoiran.fr.shortgamebuddy.activities.stats.ShowPuttingCardsActivity;
+import boucoiran.fr.shortgamebuddy.models.PuttingCard;
 import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 
-public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.OnClickListener {
+/**************************************************************************************************
+ * This is a customer adapter used to populate a ListView of Putting Cards.
+ * This is used in the ShowCards Activity
+ *************************************************************************************************/
+
+public class PCardAdapter extends ArrayAdapter<PuttingCard> implements View.OnClickListener {
     private Context mContext;
     private GolfPracticeDBHelper helper;
 
@@ -32,9 +37,9 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
         ImageView del;
     }
 
-    public SGCardAdapter(ArrayList<ShortGameCard> data, Context context) {
-        super(context, R.layout.sg_card_row_item, data);
-        this.mContext=context;
+    public PCardAdapter(ArrayList<PuttingCard> data, Context context) {
+        super(context, R.layout.p_card_row_item, data);
+        this.mContext = context;
         this.helper = new GolfPracticeDBHelper(mContext);
     }
 
@@ -48,7 +53,7 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
     @Override
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         // Get the data item for this position
-        final ShortGameCard sgc = getItem(position);
+        final PuttingCard sgc = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
 
@@ -58,7 +63,7 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
 
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.sg_card_row_item, parent, false);
+            convertView = inflater.inflate(R.layout.p_card_row_item, parent, false);
             viewHolder.date = (TextView) convertView.findViewById(R.id.dateView);
             viewHolder.complete = (ImageView) convertView.findViewById(R.id.completeView);
             viewHolder.score = (TextView) convertView.findViewById(R.id.scoreView);
@@ -69,10 +74,10 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.del.setOnClickListener(new View.OnClickListener(){
+        viewHolder.del.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                Log.i("testing", "mContext = "+mContext);
+            public void onClick(View v) {
+                Log.i("testing", "mContext = " + mContext);
                 AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
                 alertDialog.setTitle("Delete Card");
                 alertDialog.setMessage("Are you sure you want to delete this short game card?");
@@ -80,14 +85,14 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 assert sgc != null;
-                                Log.i("testing", "Deleting card"+sgc.getId());
-                                helper.deleteShortGameCard(sgc.getId());
-                                Intent i = new Intent(mContext, ShowSGCardsActivity.class);
+                                Log.i("testing", "Deleting card" + sgc.getId());
+                                helper.deletePuttingCard(sgc.getId());
+                                Intent i = new Intent(mContext, ShowPuttingCardsActivity.class);
                                 mContext.startActivity(i);
                                 dialog.dismiss();
                             }
                         });
-               alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL",
+                alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "CANCEL",
                         new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.dismiss();
@@ -100,7 +105,7 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
 
 
         if (sgc != null) {
-            if(sgc.getIsComplete() == 1) {
+            if (sgc.getIsComplete() == 1) {
                 viewHolder.complete.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier("@drawable/cardtick", "drawable", mContext.getPackageName())));
             } else {
                 viewHolder.complete.setImageDrawable(mContext.getResources().getDrawable(mContext.getResources().getIdentifier("@drawable/cardcross", "drawable", mContext.getPackageName())));
@@ -111,7 +116,7 @@ public class SGCardAdapter extends ArrayAdapter<ShortGameCard> implements View.O
         String sCap;
         String sDate;
 
-        if((sgc != null ? sgc.getLastUpdated() : null) == null)
+        if ((sgc != null ? sgc.getLastUpdated() : null) == null)
             sDate = "No Date Set";
         else
             sDate = sgc.getLastUpdated();

@@ -64,7 +64,7 @@
             android:screenOrientation="portrait"
             android:label="Lob Shot Drill"/>
         <activity
-            android:name=".activities.stats.ShowCardsActivity"
+            android:name=".activities.stats.ShowSGCardsActivity"
             android:screenOrientation="portrait"
             android:label="View Cards"/>
         <activity
@@ -105,6 +105,10 @@
             android:label="Putting Scorecard" />
         <activity
             android:name=".activities.menus.ShortGameMenuActivity"
+            android:screenOrientation="portrait"
+            android:label="Short Game Menu" />
+        <activity
+            android:name=".activities.stats.ShowPuttingCardsActivity"
             android:screenOrientation="portrait"
             android:label="Short Game Menu" />
 

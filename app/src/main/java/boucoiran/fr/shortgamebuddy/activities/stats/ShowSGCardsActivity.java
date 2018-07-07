@@ -16,7 +16,7 @@ import boucoiran.fr.shortgamebuddy.adapters.SGCardAdapter;
 import boucoiran.fr.shortgamebuddy.models.ShortGameCard;
 import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
 
-public class ShowCardsActivity extends AppCompatActivity {
+public class ShowSGCardsActivity extends AppCompatActivity {
 
     private ListView mListView;
     private GolfPracticeDBHelper practiceDBHelper;
@@ -41,7 +41,7 @@ public class ShowCardsActivity extends AppCompatActivity {
                 Log.d(TAG, "View clicked is "+id);
                 Log.d(TAG, "View clicked is "+view.getId());
                // Log.d(TAG, "View text clicked is ");
-                Intent i = new Intent(ShowCardsActivity.this, ShortGameDrillsActivity.class);
+                Intent i = new Intent(ShowSGCardsActivity.this, ShortGameDrillsActivity.class);
                 ShortGameCard entry = (ShortGameCard) parent.getItemAtPosition(position);
                 //TODO: how to get Card_Id
                 i.putExtra("CARD_ID", entry.getId());

@@ -7,7 +7,7 @@ import android.view.View;
 
 import boucoiran.fr.shortgamebuddy.R;
 import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortGameDrillsActivity;
-import boucoiran.fr.shortgamebuddy.activities.stats.ShowCardsActivity;
+import boucoiran.fr.shortgamebuddy.activities.stats.ShowSGCardsActivity;
 
 
 /*
@@ -32,7 +32,7 @@ public class ShortGameMenuActivity extends AppCompatActivity {
     }
 
     public void viewCards(View view) {
-        Intent i = new Intent(this, ShowCardsActivity.class);
+        Intent i = new Intent(this, ShowSGCardsActivity.class);
         startActivity(i);
     }
 

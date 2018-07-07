@@ -668,6 +668,14 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
     }
 
     /*
+     * This method will create am ArrayList of Putting Cards from the database.
+     */
+
+    public ArrayList<PuttingCard> getPuttingCardsFromDB() {
+        return PDHelper.getCardsFromDB(this.getWritableDatabase());
+    }
+
+    /*
      * Lookup card h'cap based on score
      */
 

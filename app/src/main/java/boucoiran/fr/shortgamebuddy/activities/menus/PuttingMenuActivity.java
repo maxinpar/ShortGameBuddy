@@ -7,6 +7,7 @@ import android.view.View;
 
 import boucoiran.fr.shortgamebuddy.R;
 import boucoiran.fr.shortgamebuddy.activities.putting.PuttingDrillsMenuActivity;
+import boucoiran.fr.shortgamebuddy.activities.stats.ShowPuttingCardsActivity;
 
 
 /*
@@ -31,14 +32,11 @@ public class PuttingMenuActivity extends AppCompatActivity {
     }
 
     public void viewCards(View view) {
-        //open the chipping drills menu
-        //TODO uncomment this once built
-//        Intent i = new Intent(this, PuttingViewCardsActivity.class);
-        //      startActivity(i);
+        Intent i = new Intent(this, ShowPuttingCardsActivity.class);
+        startActivity(i);
     }
 
     public void stats(View view) {
-        //open the chipping drills menu
         //TODO uncomment this once built
         //    Intent i = new Intent(this, PuttingStatsActivity.class);
         //  startActivity(i);

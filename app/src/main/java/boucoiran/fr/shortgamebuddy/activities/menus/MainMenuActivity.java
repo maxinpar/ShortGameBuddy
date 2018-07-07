@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.activities.stats.ShowCardsActivity;
+import boucoiran.fr.shortgamebuddy.activities.stats.ShowSGCardsActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
 
@@ -30,7 +30,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void openStatsActivity (View view) {
         //open stats and games menu
-        Intent i = new Intent(this, ShowCardsActivity.class);
+        Intent i = new Intent(this, ShowSGCardsActivity.class);
         startActivity(i);
     }
 }
