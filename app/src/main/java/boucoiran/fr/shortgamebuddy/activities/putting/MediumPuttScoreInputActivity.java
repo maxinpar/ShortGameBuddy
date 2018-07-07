@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortSandScoreInputActivity;
 import boucoiran.fr.shortgamebuddy.models.GenericPuttingDrill;
 import boucoiran.fr.shortgamebuddy.models.PuttingCard;
 import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
@@ -36,9 +35,8 @@ public class MediumPuttScoreInputActivity extends AppCompatActivity {
      * Variables below are drill specific
      */
     private int drillType = GolfPracticeDBHelper.P_MEDIUM_DRILL_ID;
-    //Todo: update both classes below to point to where to go on left and right swipe.
     private Class rClass = MakeablePuttScoreInputActivity.class;
-    private Class lClass = ShortSandScoreInputActivity.class;
+    private Class lClass = LagPuttScoreInputActivity.class;
     private static final String title = "Medium putt drill";
     private static String TAG = "MediumPuttScoreInputActy";
     private static final int activityLayout = R.layout.activity_putt_medium_score_input;
@@ -196,7 +194,6 @@ public class MediumPuttScoreInputActivity extends AppCompatActivity {
     /*
      * This will do a H'cap lookup based on the Pelz h'caps for this drill
      * We also take care of cases where score too high or low.
-     * TODO:Update this with actual hcapping lookup table.
      */
 
     private int getHcapFromScore(int score) {
@@ -204,51 +201,59 @@ public class MediumPuttScoreInputActivity extends AppCompatActivity {
 
         switch (score) {
             case 0:
-                return 38;
+                return 39;
             case 1:
-                return 35;
+                return 36;
             case 2:
-                return 32;
+                return 33;
             case 3:
-                return 29;
+                return 30;
             case 4:
-                return 26;
+                return 27;
             case 5:
                 return 24;
             case 6:
-                return 22;
+                return 21;
             case 7:
-                return 20;
-            case 8:
                 return 18;
+            case 8:
+                return 15;
             case 9:
-                return 16;
-            case 10:
-                return 14;
-            case 11:
                 return 12;
+            case 10:
+                return 9;
+            case 11:
+                return 7;
             case 12:
-                return 10;
+                return 5;
             case 13:
-                return 8;
+                return 3;
             case 14:
-                return 6;
-            case 15:
-                return 4;
-            case 16:
                 return 2;
-            case 17:
+            case 15:
+                return 1;
+            case 16:
                 return 0;
+            case 17:
+                return -1;
             case 18:
                 return -2;
             case 19:
-                return -5;
+                return -3;
             case 20:
+                return -4;
+            case 21:
+                return -5;
+            case 22:
+                return -6;
+            case 23:
+                return -7;
+            case 24:
                 return -8;
         }
         Log.e(TAG, "Can't find hcap for value: " + score);
-        if (score > 20) return -8;
-        return 38;
+        if (score > 24) return -8;
+        return 39;
     }
 
     /*

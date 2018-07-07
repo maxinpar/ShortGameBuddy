@@ -22,6 +22,7 @@ public class PDHelper {
 
 
     private final static String TAG = "PDHelper";
+    private final static String[] drillNames = {"", "3 Footers", "6 Footers", "Makeable Putts", "Medium Putts", "Lag Putts", "Big Break Putts"};
 
     /*
      * Get single Putting Drill
@@ -358,6 +359,100 @@ public class PDHelper {
             c.close();
         }
         return -1;
+    }
+
+    /*
+     * Method to get all Putting card data into a String[][] format for displaying in Scorecard
+     */
+    public static String[][] getScoreCardData(long card_id, SQLiteDatabase db) {
+        int drillsCompleted = 0;
+        int totalScore = 0;
+        String[][] sgCardScorecardData = new String[10][3];
+
+        for (int i = GolfPracticeDBHelper.P_3FT_PUTT_DRILL_ID; i <= GolfPracticeDBHelper.P_BIG_BREAK_DRILL_ID; i++) {
+
+            String[] sgSCScoreCardData = new String[3];
+            try {
+                GenericPuttingDrill scd = getDrill((int) card_id, i, db);
+                sgSCScoreCardData[0] = drillNames[i] + " (" + String.valueOf(scd.getTotalScore()) + ")";
+                sgSCScoreCardData[1] = String.valueOf(scd.getDrillHandicap());
+                sgSCScoreCardData[2] = "sb" + getClosestPC(scd.getTotalScore(), i);
+                drillsCompleted++;
+                totalScore += scd.getTotalScore();
+            } catch (Exception e) {
+                sgSCScoreCardData = new String[]{drillNames[i] + ": No - Data", "-", "sb00"};
+            }
+
+            //set at previous index as drills ID start at 1 and string array starts at 0
+            sgCardScorecardData[i - 1] = sgSCScoreCardData;
+        }
+
+        //finally,lets try and load the data for the entire card
+
+        String[] sgSCScoreCardData = new String[3];
+        Log.d(TAG, "Putting Card - Drills completed: " + drillsCompleted);
+        if (drillsCompleted == 6) {
+            //If all drills have been completed then the card is completed and we can also get a
+            // full card score.
+            try {
+                PuttingCard c = getCard(card_id, db);
+                c.setTotalScore(totalScore);
+                Log.d(TAG, "Putting Card - Got totalscore: " + totalScore);
+                sgSCScoreCardData[0] = "Overall Score: " + totalScore;
+                sgSCScoreCardData[1] = String.valueOf(getCardHCap(totalScore));
+                sgSCScoreCardData[2] = "sb" + getClosestPC(totalScore, (int) card_id);
+            } catch (Exception e) {
+                Log.e(TAG, "failed to load card when trying to display Putting score card");
+                sgSCScoreCardData = new String[]{"Overall Putting Drills", "-", "sb00"};
+            }
+        } else {
+            sgSCScoreCardData = new String[]{"Overall Putting Drills", "-", "sb00"};
+        }
+        sgCardScorecardData[6] = sgSCScoreCardData;
+        return sgCardScorecardData;
+    }
+
+    /*
+     * This method gives back a % score for a drill score. It is used to determine what gradient
+     * image to display in the Score Card Activity
+     *
+     * It works by dividing the score by the top score, multiplying by 100 and then using modulo
+     * to round to the nearest (upper) 5.
+     */
+
+    private static String getClosestPC(int score, int drillId) {
+        int ret = 0;
+        int maxScore = 1;
+        switch (drillId) {
+            case GolfPracticeDBHelper.P_CARD_ID:
+                maxScore = 97;
+                break;
+            case GolfPracticeDBHelper.P_3FT_PUTT_DRILL_ID:
+                maxScore = 10;
+                break;
+            case GolfPracticeDBHelper.P_6FT_PUTT_DRILL_ID:
+                maxScore = 10;
+                break;
+            case GolfPracticeDBHelper.P_MAKEABLE_DRILL_ID:
+                maxScore = 16;
+                break;
+            case GolfPracticeDBHelper.P_MEDIUM_DRILL_ID:
+                maxScore = 24;
+                break;
+            case GolfPracticeDBHelper.P_LAG_DRILL_ID:
+                maxScore = 20;
+                break;
+            case GolfPracticeDBHelper.P_BIG_BREAK_DRILL_ID:
+                maxScore = 17;
+                break;
+        }
+        Log.i(TAG, "getting maxscore for drill " + drillId + " = " + maxScore);
+
+        ret = Math.round(100 * score / maxScore);
+        ret += (5 - (ret % 5));
+        if (ret > 100) return "100";
+        if (ret == 5) return "05";
+        return String.valueOf(ret);
     }
 
     /*

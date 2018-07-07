@@ -14,8 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortChipScoreInputActivity;
-import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortSandScoreInputActivity;
 import boucoiran.fr.shortgamebuddy.models.GenericPuttingDrill;
 import boucoiran.fr.shortgamebuddy.models.PuttingCard;
 import boucoiran.fr.shortgamebuddy.utils.GolfPracticeDBHelper;
@@ -35,9 +33,8 @@ public class Short3ftPuttScoreInputActivity extends AppCompatActivity {
      * Variables below are drill specific
      */
     private int drillType = GolfPracticeDBHelper.P_3FT_PUTT_DRILL_ID;
-    //Todo: update both classes below to point to where to go on left and right swipe.
-    private Class rClass = ShortChipScoreInputActivity.class;
-    private Class lClass = ShortSandScoreInputActivity.class;
+    private Class rClass = PuttingDrillsMenuActivity.class;
+    private Class lClass = Short6ftPuttScoreInputActivity.class;
     private static final String title = "3ft putt drill";
     private static String TAG = "3ftPuttScoreInputActivity";
     private static final int activityLayout = R.layout.activity_3ft_putt_score_input;
@@ -194,51 +191,31 @@ public class Short3ftPuttScoreInputActivity extends AppCompatActivity {
 
         switch (score) {
             case 0:
-                return 38;
+                return 40;
             case 1:
-                return 35;
+                return 39;
             case 2:
-                return 32;
+                return 37;
             case 3:
-                return 29;
+                return 31;
             case 4:
-                return 26;
+                return 25;
             case 5:
-                return 24;
+                return 19;
             case 6:
-                return 22;
-            case 7:
-                return 20;
-            case 8:
-                return 18;
-            case 9:
-                return 16;
-            case 10:
                 return 14;
-            case 11:
-                return 12;
-            case 12:
-                return 10;
-            case 13:
-                return 8;
-            case 14:
-                return 6;
-            case 15:
-                return 4;
-            case 16:
-                return 2;
-            case 17:
-                return 0;
-            case 18:
+            case 7:
+                return 9;
+            case 8:
+                return 5;
+            case 9:
+                return 1;
+            case 10:
                 return -2;
-            case 19:
-                return -5;
-            case 20:
-                return -8;
         }
         Log.e(TAG, "Can't find hcap for value: " + score);
-        if (score > 20) return -8;
-        return 38;
+        if (score > 10) return -2;
+        return 40;
     }
 
     /*

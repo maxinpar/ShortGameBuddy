@@ -29,7 +29,7 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
      * Below are constants for Short Game Drill ID's to be used when linking Short Game Cards to
      * Short Game Drills
      */
-    private final static int P_CARD_ID = 0;
+    public final static int P_CARD_ID = 0;
     public final static int P_3FT_PUTT_DRILL_ID = 1;
     public final static int P_6FT_PUTT_DRILL_ID = 2;
     public final static int P_MAKEABLE_DRILL_ID = 3;
@@ -55,7 +55,6 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
 
 
     private String[] drillNames = {"", "Short Chip Drill", "Long Chip Drill", "Short Sand Drill", "Long Sand Drill", "Short Pitch Drill", "Medium Pitch Drill", "Long Pitch Drill", "Chip from Rough", "Lob Shot Drill"};
-    private String[] pDrillNames = {"", "3 Footers", "6 Footers", "Makeable Putts", "Medium Putts", "Lag Putts"};
 
     /**********************************************************************************************
      * CREATE TABLE queries are below.                                                            *
@@ -543,9 +542,15 @@ public class GolfPracticeDBHelper extends SQLiteOpenHelper {
         return String.valueOf(ret);
     }
 
-
     /*
-     * Method to get all SG card data into a String[][] format for dispalying in Scorecard
+     * Method to get all Putting card data into a String[][] format for displaying in Scorecard
+     */
+
+    public String[][] getPuttScoreCardData(long card_id) {
+        return PDHelper.getScoreCardData(card_id, this.getWritableDatabase());
+    }
+    /*
+     * Method to get all SG card data into a String[][] format for displaying in Scorecard
      */
 
     public String [][] getSGScoreCardData(long card_id) {

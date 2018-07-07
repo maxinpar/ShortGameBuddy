@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="12"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        style="@style/DrillScoreGradientLine"
+        android:onClick="open3f">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/Gradient_header"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/sb00"
+                android:alpha="0"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:layout_centerHorizontal="true"
+                android:text="Drill Name (Score)"
+                android:textSize="25sp"
+                android:textColor="@color/orange"
+                android:textStyle="bold"
+                android:id="@+id/SG_Scorecard_SC_Score_header" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/SG_Scorecard_Hcap_header"
+            style="@style/DrillScoreGradientHcapText"
+            android:textColor="@color/orange"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:text="H'cap" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/DrillScoreGradientLine"
+        android:onClick="open3f">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/S3F_Gradient"
+                style="@style/scoreCardGradient" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:id="@+id/P_Scorecard_3F_Score" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/P_Scorecard_3F_Hcap"
+            style="@style/DrillScoreGradientHcapText"
+            android:text="N/A" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/DrillScoreGradientLine"
+        android:onClick="open6f">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/S6F_Gradient"
+                style="@style/scoreCardGradient" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:id="@+id/P_Scorecard_6F_Score" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/P_Scorecard_6F_Hcap"
+            style="@style/DrillScoreGradientHcapText"
+            android:text="N/A" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/DrillScoreGradientLine"
+        android:onClick="openMaP">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/MaP_Gradient"
+                style="@style/scoreCardGradient" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:id="@+id/P_Scorecard_MaP_Score" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/P_Scorecard_MaP_Hcap"
+            style="@style/DrillScoreGradientHcapText"
+            android:text="N/A" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/DrillScoreGradientLine"
+        android:onClick="openMeP">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/MeP_Gradient"
+                style="@style/scoreCardGradient" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:id="@+id/P_Scorecard_MeP_Score" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/P_Scorecard_MeP_Hcap"
+            style="@style/DrillScoreGradientHcapText"
+            android:text="N/A" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/DrillScoreGradientLine"
+        android:onClick="opeLP">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/LP_Gradient"
+                style="@style/scoreCardGradient" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:id="@+id/P_Scorecard_LP_Score" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/P_Scorecard_LP_Hcap"
+            style="@style/DrillScoreGradientHcapText"
+            android:text="N/A" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/DrillScoreGradientLine"
+        android:onClick="openBB">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/BB_Gradient"
+                style="@style/scoreCardGradient" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:id="@+id/P_Scorecard_BB_Score" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/P_Scorecard_BB_Hcap"
+            style="@style/DrillScoreGradientHcapText"
+            android:text="N/A" />
+    </LinearLayout>
+
+
+    <LinearLayout style="@style/DrillScoreGradientLine">
+
+        <RelativeLayout style="@style/DrillScoreGradientLineRL">
+
+            <ImageView
+                android:id="@+id/TOTAL_Gradient"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/sb00"
+                android:layout_alignParentLeft="true" />
+
+            <TextView
+                style="@style/DrillScoreGradientLineText"
+                android:id="@+id/P_Scorecard_TOTAL_Score" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/P_Scorecard_TOTAL_Hcap"
+            style="@style/DrillScoreGradientHcapText"
+            android:text="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:weightSum="2"
+        android:gravity="center_vertical">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="goToPDrills"
+            android:text="Back" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Main Menu"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/menu_buttons"
+            android:onClick="goToMainMenu" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import boucoiran.fr.shortgamebuddy.R;
-import boucoiran.fr.shortgamebuddy.activities.shortGame.ShortGameDrillsActivity;
 import boucoiran.fr.shortgamebuddy.activities.stats.ShowCardsActivity;
 
 public class MainMenuActivity extends AppCompatActivity {
@@ -19,7 +18,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
     public void openChippingActivity(View view) {
         //open the chipping drills menu
-        Intent i = new Intent(this, ShortGameDrillsActivity.class);
+        Intent i = new Intent(this, ShortGameMenuActivity.class);
         startActivity(i);
     }
 

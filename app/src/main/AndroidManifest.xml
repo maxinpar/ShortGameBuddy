@@ -99,6 +99,15 @@
             android:name=".activities.putting.BigBreakPuttScoreInputActivity"
             android:screenOrientation="portrait"
             android:label="Big Breaking putts" />
+        <activity
+            android:name=".activities.putting.PuttingScorecardActivity"
+            android:screenOrientation="portrait"
+            android:label="Putting Scorecard" />
+        <activity
+            android:name=".activities.menus.ShortGameMenuActivity"
+            android:screenOrientation="portrait"
+            android:label="Short Game Menu" />
+
 
     </application>
 

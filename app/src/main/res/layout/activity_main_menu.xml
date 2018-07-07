@@ -34,16 +34,5 @@
             android:layout_gravity="left"
             android:onClick="openPuttingActivity"
             />
-
-        <Button android:id="@+id/statsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Putting Drills"
-            android:background="@drawable/stats"
-            android:layout_weight=".2"
-            android:layout_gravity="left"
-            android:onClick="openStatsActivity"
-            />
-
     </LinearLayout>
 </RelativeLayout>

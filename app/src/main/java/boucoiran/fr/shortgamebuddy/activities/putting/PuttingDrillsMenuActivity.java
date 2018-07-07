@@ -104,12 +104,9 @@ public class PuttingDrillsMenuActivity extends AppCompatActivity {
      * It will pass the Putting Card ID if we have one if one has already been created.
      */
     public void openScorecardActivity(View view) {
-        //TODO uncomment this once built
-/*
         Intent i = new Intent(this, PuttingScorecardActivity.class);
         i.putExtra("CARD_ID", (int) card_id);
         startActivity(i);
-*/
     }
 
     /*
