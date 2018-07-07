@@ -139,7 +139,7 @@
 
                     <ImageView
                         style="@style/puttDrillMenuImg"
-                        android:src="@drawable/makeable" />
+                        android:src="@drawable/lag" />
 
                 </RelativeLayout>
 
@@ -166,7 +166,7 @@
 
                     <ImageView
                         style="@style/puttDrillMenuImg"
-                        android:src="@drawable/makeable" />
+                        android:src="@drawable/bigbreak" />
 
                 </RelativeLayout>
 
