@@ -1,38 +1,35 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/grass_bg"
-        android:scaleType="centerCrop"/>
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button android:id="@+id/chipDrillButton"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/chipDrillButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chipping Drills"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
             android:background="@drawable/chip_shot"
-            android:layout_weight=".2"
-            android:layout_gravity="left"
+            android:baselineAligned="false"
             android:onClick="openChippingActivity"
-            />
+            android:text="Chipping Drills"
+            android:textSize="24sp" />
 
-        <Button android:id="@+id/puttDrillButton"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/puttDrillButton"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Putting Drills"
+            android:layout_gravity="center"
+            android:layout_weight=".5"
             android:background="@drawable/putt_shot"
-            android:layout_weight=".2"
-            android:layout_gravity="left"
             android:onClick="openPuttingActivity"
-            />
+            android:text="Putting Drills"
+            android:textSize="24sp" />
     </LinearLayout>
 </RelativeLayout>
