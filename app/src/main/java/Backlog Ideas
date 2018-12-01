@@ -12,3 +12,13 @@ Move all hcap lookups to the helper class.
 Re-do all images
 Rename ScoreCard View's Back Button to "Edit Card"
 Maybe add in some sort of 10x putts from X distance drill (vary distances) to see what the user's % make is from different distances. Compare with PGA / Other sources
+Add the Putting games / drills that Ken Druce told us about:
+    - Either 9 holes or 18 holes:
+        - 6x short putts (3-4m)
+        - 6x medium putts (10-12m)
+        - 6x long putts (18+)
+    - Scoring:
+        - 3pts if you hole it
+        - -3pt if you 3 putt
+        - 0 pts if you 2-putt after leaving your first putt more than a putter-length outside the hole
+        - 1 pt if you 2-putt after leaving the first putt within 1 putter length from the hole
